@@ -53,7 +53,7 @@
 
     date_default_timezone_set('America/Bogota');
     $today = date("Y-m-d H:i:s");
-    $date = "2017-07-31 23:59:00";
+    $date = "2017-09-31 23:59:00";
 
     if ( $today > $date  && empty($usuario) ) {
 
