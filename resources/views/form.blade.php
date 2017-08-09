@@ -102,6 +102,14 @@
                 </fieldset>
 
                 <fieldset class="form-group" >
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">Nombres <span style="color: red;font-size: 13px;text-transform: capitalize;color:red">(CAMPO OBLIGATORIO)</span></label>
+                    <label class="freebirdFormviewerViewItemsPagebreakDescriptionText" style="font-size:15px">
+                        Diligenciar en MAYÚSCULA y tal cual como aparece en el documento de identidad
+                    </label>
+                    <input required type="text" class="form-control" id="nombres" name="nombres" value={{(!empty($usuario)?$usuario->nombres:'')}}  >
+                </fieldset>
+
+                <fieldset class="form-group" >
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">Apellidos <span style="color: red;font-size: 13px;text-transform: capitalize;color:red">(CAMPO OBLIGATORIO)</span></label>
                     <label class="freebirdFormviewerViewItemsPagebreakDescriptionText" style="font-size:15px">
                         Diligenciar en MAYÚSCULA y tal cual como aparece en el documento de identidad
@@ -109,13 +117,36 @@
                     <input required type="text" class="form-control" id="apellidos" name="apellidos"  value={{(!empty($usuario)?$usuario->apellidos:'')}} >
                 </fieldset>
 
-                <fieldset class="form-group" >
-                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">Nombres <span style="color: red;font-size: 13px;text-transform: capitalize;color:red">(CAMPO OBLIGATORIO)</span></label>
+                <fieldset class="form-group">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">CorreoElectrónico01  </label><br>
                     <label class="freebirdFormviewerViewItemsPagebreakDescriptionText" style="font-size:15px">
-                        Diligenciar en MAYÚSCULA y tal cual como aparece en el documento de identidad
+                        Diligencie la información del correo es necesario que sea gmail <span style="color: red;font-size: 13px;text-transform: capitalize;color:red">(CAMPO OBLIGATORIO)</span>
                     </label>
-                    <input required type="text" class="form-control" id="nombres" name="nombres" value={{(!empty($usuario)?$usuario->nombres:'')}}  >
+                    <input required type="email" class="form-control" id="mail" name="mail"   value={{(!empty($usuario)?($usuario->mail):'')}}>
                 </fieldset>
+
+                <fieldset class="form-group">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">CorreoElectrónico02 </label><br>
+                    <label class="freebirdFormviewerViewItemsPagebreakDescriptionText" style="font-size:15px">
+                        Diligencie el correo que desea que le llegue copia de los comunicados
+                    </label>
+                    <input  type="email" class="form-control" id="mail2" name="mail2" value={{(!empty($usuario)?($usuario->mail2):'')}}  >
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">
+                        FECHA DE NACIMIENTO  <span style="color: red;font-size: 13px;text-transform: capitalize;color:red">(CAMPO OBLIGATORIO)</span>
+                    </label>
+                    <label class="freebirdFormviewerViewItemsPagebreakDescriptionText" style="font-size:15px">
+                        Seleccione de acuerdo a la fecha de nacimiento en su cedula
+                    </label>
+                    <input required type="text" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" value={{(!empty($usuario)?($usuario->fecha_nacimiento):'')}} >
+                </fieldset>
+
+
+
+
+
 
                 <fieldset class="form-group">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Fotografia <span style="color: red;font-size: 13px;text-transform: capitalize;color:red">(CAMPO OBLIGATORIO)</span></label>
@@ -174,15 +205,7 @@
                     <input required type="text" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" value={{(!empty($usuario)?($usuario->fecha_nacimiento):'')}} >
                 </fieldset>
 
-                <fieldset class="form-group">
-                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">Selecciona Pais</label>
-                    <label class="freebirdFormviewerViewItemsPagebreakDescriptionText" style="font-size:15px">
-                        Seleccione Tu pais de origen <span style="color: red;font-size: 13px;text-transform: capitalize;color:red">(CAMPO OBLIGATORIO)</span>
-                    </label>
-                    <select name="id_pais" id="id_pais" class="form-control" >
 
-                    </select>
-                </fieldset>
 
                 <fieldset class="form-group">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">Selecciona Departamento</label>
@@ -269,21 +292,7 @@
                     <input required type="text" class="form-control" id="celular" name="celular"  value={{(!empty($usuario)?($usuario->celular):'')}}>
                 </fieldset>
 
-                <fieldset class="form-group">
-                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">CorreoElectrónico01  </label><br>
-                    <label class="freebirdFormviewerViewItemsPagebreakDescriptionText" style="font-size:15px">
-                        Diligencie la información del correo es necesario que sea gmail <span style="color: red;font-size: 13px;text-transform: capitalize;color:red">(CAMPO OBLIGATORIO)</span>
-                    </label>
-                    <input required type="email" class="form-control" id="mail" name="mail"   value={{(!empty($usuario)?($usuario->mail):'')}}>
-                </fieldset>
 
-                <fieldset class="form-group">
-                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">CorreoElectrónico02 </label><br>
-                    <label class="freebirdFormviewerViewItemsPagebreakDescriptionText" style="font-size:15px">
-                        Diligencie el correo que desea que le llegue copia de los comunicados
-                    </label>
-                    <input  type="email" class="form-control" id="mail2" name="mail2" value={{(!empty($usuario)?($usuario->mail2):'')}}  >
-                </fieldset>
 
 
 
