@@ -414,21 +414,115 @@
         <div class="panel panel-default">
             <div class="panel-heading">NIVEL EDUCATIVO</div>
             <div class="panel-body">
+                <fieldset class="form-group col-sm-6">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">
+                        Condición de discapacidad <span style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span>
+                    </label>
+                    <select required name="nivel_educativo" id="nivel_educativo" class="form-control">
+                        <option value="1" {{(!empty($usuario)?($usuario->condicion == 'Elige' ? 'selected' : ''):'')}}>Elige</option>
+                        <option value="2" {{(!empty($usuario)?($usuario->condicion == 'Ninguno' ? 'selected' : ''):'')}}>Ninguno</option>
+                        <option value="3" {{(!empty($usuario)?($usuario->condicion == 'Preescolar' ? 'selected' : ''):'')}}>Preescolar</option>
+                        <option value="4" {{(!empty($usuario)?($usuario->condicion == 'Básica primaria (2-4)' ? 'selected' : ''):'')}}>Básica primaria (2-4)</option>
+                        <option value="5" {{(!empty($usuario)?($usuario->condicion == 'Básica secundaria (7-8)' ? 'selected' : ''):'')}}>Básica secundaria (7-8)</option>
+                        <option value="6" {{(!empty($usuario)?($usuario->condicion == 'Media (11-12)' ? 'selected' : ''):'')}}>Media (11-12)</option>
+                        <option value="7" {{(!empty($usuario)?($usuario->condicion == 'Técnica laboral' ? 'selected' : ''):'')}}>Técnica laboral</option>
+                        <option value="8" {{(!empty($usuario)?($usuario->condicion == 'Técnica profesional' ? 'selected' : ''):'')}}>Técnica profesional</option>
+                        <option value="9" {{(!empty($usuario)?($usuario->condicion == 'Tecnológica' ? 'selected' : ''):'')}}>Tecnológica</option>
+                        <option value="10" {{(!empty($usuario)?($usuario->condicion == 'Universitaria' ? 'selected' : ''):'')}}>Universitaria</option>
+                        <option value="11" {{(!empty($usuario)?($usuario->condicion == 'Especialización' ? 'selected' : ''):'')}}>Especialización</option>
+                        <option value="12" {{(!empty($usuario)?($usuario->condicion == 'Maestría' ? 'selected' : ''):'')}}>Maestría</option>
+                        <option value="13" {{(!empty($usuario)?($usuario->condicion == 'Doctorado' ? 'selected' : ''):'')}}>Doctorado</option>
+                    </select>
+                </fieldset>
+                <fieldset class="form-group col-sm-6">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">
+                        Estado de escolaridad  <span style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span>
+                    </label>
+                    <select required name="escolaridad" id="escolaridad" class="form-control">
+                        <option {{(!empty($usuario)?($usuario->condicion == 'Elige' ? 'selected' : ''):'')}} value="1" >Elige</option>
+                        <option {{(!empty($usuario)?($usuario->condicion == 'Ninguno' ? 'selected' : ''):'')}} value="2" >Ninguno</option>
+                        <option {{(!empty($usuario)?($usuario->condicion == 'En curso' ? 'selected' : ''):'')}} value="3" >En curso</option>
+                        <option {{(!empty($usuario)?($usuario->condicion == 'Incompleto' ? 'selected' : ''):'')}} value="4" >Incompleto</option>
+                        <option {{(!empty($usuario)?($usuario->condicion == 'Graduado' ? 'selected' : ''):'')}} value="5" >Graduado</option>
+                    </select>
+                </fieldset>
+                <fieldset class="form-group col-sm-6">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">
+                        Fecha de culminación de estudio más alto <span style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span>
+                    </label>
+                    <label class="freebirdFormviewerViewItemsPagebreakDescriptionText" style="font-size:15px">
+                        En caso de no tener la fecha dejar en blanco
+                    </label>
+                    <input  type="text" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento"
+                           value={{(!empty($usuario)?($usuario->fecha_estudio):'')}} >
+                </fieldset>
 
-                <option value="1" {{(!empty($usuario)?($usuario->condicion == 'Múltiple' ? 'selected' : ''):'')}}>Elige</option>
-                <option value="3" {{(!empty($usuario)?($usuario->condicion == 'Múltiple' ? 'selected' : ''):'')}}>Ninguno</option>
-                <option value="3" {{(!empty($usuario)?($usuario->condicion == 'Múltiple' ? 'selected' : ''):'')}}>Preescolar</option>
-                <option value="3" {{(!empty($usuario)?($usuario->condicion == 'Múltiple' ? 'selected' : ''):'')}}>Básica primaria (1-5)</option>
-                <option value="3" {{(!empty($usuario)?($usuario->condicion == 'Múltiple' ? 'selected' : ''):'')}}>Básica secundaria (6-9)</option>
-                <option value="3" {{(!empty($usuario)?($usuario->condicion == 'Múltiple' ? 'selected' : ''):'')}}>Media (10-13)</option>
-                <option value="3" {{(!empty($usuario)?($usuario->condicion == 'Múltiple' ? 'selected' : ''):'')}}>Técnica laboral</option>
-                <option value="3" {{(!empty($usuario)?($usuario->condicion == 'Múltiple' ? 'selected' : ''):'')}}>Técnica profesional</option>
-                <option value="3" {{(!empty($usuario)?($usuario->condicion == 'Múltiple' ? 'selected' : ''):'')}}>Tecnológica</option>
-                <option value="3" {{(!empty($usuario)?($usuario->condicion == 'Múltiple' ? 'selected' : ''):'')}}>Universitaria</option>
-                <option value="3" {{(!empty($usuario)?($usuario->condicion == 'Múltiple' ? 'selected' : ''):'')}}>Especialización</option>
-                <option value="3" {{(!empty($usuario)?($usuario->condicion == 'Múltiple' ? 'selected' : ''):'')}}>Maestría</option>
-                <option value="3" {{(!empty($usuario)?($usuario->condicion == 'Múltiple' ? 'selected' : ''):'')}}>Doctorado</option>
+                <fieldset class="form-group col-sm-6">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Titulo obtenido </label>
+                    <input  type="text" class="form-control" id="titulo_obtenido" name="titulo_obtenido"  value={{(!empty($usuario)?($usuario->titulo_obtenido):'')}} >
+                </fieldset>
+
+                <fieldset class="form-group col-sm-6">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Institución <span style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span></label>
+                    <input  type="text" class="form-control" id="institucion_titulo_obtenido" name="institucion_titulo_obtenido"  value={{(!empty($usuario)?($usuario->institucion_titulo_obtenido):'')}} >
+                </fieldset>
+
+                <fieldset class="form-group col-sm-6">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Número de tarjeta profesional </label>
+                    <label class="freebirdFormviewerViewItemsPagebreakDescriptionText" style="font-size:15px">
+                        En caso de no tener tarjeta profesional, dejar el campo vacío
+                    </label>
+                    <input  type="text" class="form-control" id="targeta_profesional" name="targeta_profesional"  value={{(!empty($usuario)?($usuario->targeta_profesional):'')}} >
+                </fieldset>
+
+                <fieldset class="form-group col-sm-6">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Tiene practica laboral <span style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span</label>
+                <select  name="practica_laboral" id="practica_laboral" class="form-control" >
+
+                    <option value="1" {{(!empty($usuario)?($usuario->practica_laboral == 'Si' ? 'selected' : ''):'')}}>Si</option>
+                    <option value="2" {{(!empty($usuario)?($usuario->practica_laboral == 'No' ? 'selected' : ''):'')}}>No</option>
                 </select>
+                </fieldset>
+
+                <fieldset class="form-group col-sm-6">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Tiene practica laboral <span style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span</label>
+                    <select  name="practica_laboral" id="practica_laboral" class="form-control" >
+
+                        <option value="1" {{(!empty($usuario)?($usuario->practica_laboral == 'Si' ? 'selected' : ''):'')}}>Si</option>
+                        <option value="2" {{(!empty($usuario)?($usuario->practica_laboral == 'No' ? 'selected' : ''):'')}}>No</option>
+                    </select>
+                </fieldset>
+
+                <fieldset class="form-group col-sm-6">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Grado más alto de escolaridad <span style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span</label>
+                    <select  name="grado_escolaridad" id="grado_escolaridad" class="form-control" >
+
+                <option {{(!empty($usuario)?($usuario->grado_escolaridad == 'Elige' ? 'selected' : ''):'')}} value="1" >Elige</option>
+                <option {{(!empty($usuario)?($usuario->grado_escolaridad == 'Ninguno' ? 'selected' : ''):'')}} value="2" >Ninguno</option>
+                <option {{(!empty($usuario)?($usuario->grado_escolaridad == 'Preescolar' ? 'selected' : ''):'')}} value="3" >Preescolar</option>
+                <option {{(!empty($usuario)?($usuario->grado_escolaridad == 'Básica primaria (1-5)' ? 'selected' : ''):'')}} value="4" >Básica primaria (1-5)</option>
+                <option {{(!empty($usuario)?($usuario->grado_escolaridad == 'Básica secundaria (6-9)' ? 'selected' : ''):'')}} value="5" >Básica secundaria (6-9)</option>
+                <option {{(!empty($usuario)?($usuario->grado_escolaridad == 'Media (10-13)' ? 'selected' : ''):'')}} value="6" >Media (10-13)</option>
+                <option {{(!empty($usuario)?($usuario->grado_escolaridad == 'Técnica laboral' ? 'selected' : ''):'')}} value="7" >Técnica laboral</option>
+                <option {{(!empty($usuario)?($usuario->grado_escolaridad == 'Técnica profesional' ? 'selected' : ''):'')}} value="8" >Técnica profesional</option>
+                <option {{(!empty($usuario)?($usuario->grado_escolaridad == 'Tecnológica' ? 'selected' : ''):'')}} value="9" >Tecnológica</option>
+                <option {{(!empty($usuario)?($usuario->grado_escolaridad == 'Universitaria' ? 'selected' : ''):'')}} value="10" >Universitaria</option>
+                <option {{(!empty($usuario)?($usuario->grado_escolaridad == 'Especialización' ? 'selected' : ''):'')}} value="11" >Especialización</option>
+                <option {{(!empty($usuario)?($usuario->grado_escolaridad == 'Maestría' ? 'selected' : ''):'')}} value="12" >Maestría</option>
+                <option {{(!empty($usuario)?($usuario->grado_escolaridad == 'Doctorado' ? 'selected' : ''):'')}} value="13" >Doctorado</option>
+                    </select>
+                </fieldset>
+
+                <fieldset class="form-group col-sm-6">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Estado de escolaridad <span style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span></label>
+                    <select  name="estado_escolaridad" id="estado_escolaridad" class="form-control" >
+
+                        <option {{(!empty($usuario)?($usuario->condicion == 'Elige' ? 'selected' : ''):'')}} value="1" >Elige</option>
+                        <option {{(!empty($usuario)?($usuario->condicion == 'Ninguno' ? 'selected' : ''):'')}} value="3" >Ninguno</option>
+                        <option {{(!empty($usuario)?($usuario->condicion == 'En curso' ? 'selected' : ''):'')}} value="4" >En curso</option>
+                        <option {{(!empty($usuario)?($usuario->condicion == 'Incompleto' ? 'selected' : ''):'')}} value="5" >Incompleto</option>
+
+                    </select>
                 </fieldset>
 
 
@@ -439,7 +533,7 @@
 
     </form>
     <?php } ?>
-    <script type="text/javascript" src="{{asset('public/Js/form.js?n=50')}}"></script>
+    <script type="text/javascript" src="{{asset('public/Js/form)}}">')}}"></script>
 
     @if(!empty($usuario))
         <script>
