@@ -53,6 +53,49 @@
             font-size: 10px !important;
             color: gray;
         }
+
+
+        .titulos_seccion {
+            position: relative;
+            background-color: rgb(0, 66, 101);
+            color: white;
+            font-weight: bolder;
+            margin: 12px;
+            height: 34px;
+            padding: 8px;
+            width: 95%;
+        }
+
+        .titulos_seccion:after{
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 100%;
+            right: -12px;
+            background-color: #004265;
+            top: 0;
+            transform: skew(-211deg);
+        }
+
+        .panel-default>.panel-heading {
+            color: #ffffff;
+            background-color: #004265;
+            border-color: #004265;
+            font-weight: bolder;
+            text-transform: uppercase;
+        }
+
+        .panel-default>.panel-heading :after{
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 100%;
+            right: -12px;
+            background-color: #004265;
+            top: 0;
+            transform: skew(-211deg);
+        }
+
     </style>
     <?php
 
@@ -85,7 +128,7 @@
             <div class="panel-body">
 
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Documento de
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Documento de
                         identidad <span style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span></label>
                     <input title="Se necesita una cedula" required type="number" class="form-control" id="cedula"
                            name="cedula" value={{(!empty($usuario)?$usuario->cedula:'')}} >
@@ -93,7 +136,7 @@
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">Tipo de
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">Tipo de
                         documento <span style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span></label>
                     <label class="freebirdFormviewerViewItemsPagebreakDescriptionText" style="font-size:15px">
                         Seleccione de acuerdo a su documento
@@ -109,7 +152,7 @@
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">Nombres <span
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">Nombres <span
                                 style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span></label>
                     <label class="freebirdFormviewerViewItemsPagebreakDescriptionText" style="font-size:15px">
                         Diligenciar en MAYÚSCULA y tal cual como aparece en el documento de identidad
@@ -119,7 +162,7 @@
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">Apellidos <span
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">Apellidos <span
                                 style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span></label>
                     <label class="freebirdFormviewerViewItemsPagebreakDescriptionText" style="font-size:15px">
                         Diligenciar en MAYÚSCULA y tal cual como aparece en el documento de identidad
@@ -130,7 +173,7 @@
 
 
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">CorreoElectrónico</label><span
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">CorreoElectrónico</label><span
                             style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span>
                     <label class="freebirdFormviewerViewItemsPagebreakDescriptionText" style="font-size:15px">
                         Diligencie la información del correo es necesario que sea gmail
@@ -140,7 +183,7 @@
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">
                         FECHA DE NACIMIENTO <span
                                 style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span>
                     </label>
@@ -152,7 +195,7 @@
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">Selecciona
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">Selecciona
                         Pais</label>
                     <label class="freebirdFormviewerViewItemsPagebreakDescriptionText" style="font-size:15px">
                         Seleccione Tu pais de Residencia <span
@@ -163,7 +206,7 @@
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">Selecciona
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">Selecciona
                         Departamento</label>
                     <label class="freebirdFormviewerViewItemsPagebreakDescriptionText" style="font-size:15px">
                         Seleccione Tu Departamento de Residencia <span
@@ -175,7 +218,7 @@
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">Selecciona
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">Selecciona
                         Ciudad/municipio</label>
                     <label class="freebirdFormviewerViewItemsPagebreakDescriptionText" style="font-size:15px">
                         Seleccione Tu Ciudad de Residencia <span
@@ -188,7 +231,7 @@
 
 
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">
                         Localidad <span style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span>
                     </label>
                     <label class="freebirdFormviewerViewItemsPagebreakDescriptionText" style="font-size:15px">
@@ -200,7 +243,7 @@
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">
                         Barrio de Residencia <span
                                 style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span>
                     </label><br>
@@ -212,7 +255,7 @@
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Direccion <span
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Direccion <span
                                 style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span></label>
                     <label class="freebirdFormviewerViewItemsPagebreakDescriptionText" style="font-size:15px">
                         Colocar la información correspondiente y completa a su sitio de residencia actual (ser lo más
@@ -232,7 +275,7 @@
             <div class="panel-body">
 
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">Estado
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">Estado
                         civil<span
                                 style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span></label>
                     <select required name="estado_civil" id="estado_civil" class="form-control">
@@ -256,7 +299,7 @@
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">
                         Sexo <span style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span>
                     </label>
                     <label class="freebirdFormviewerViewItemsPagebreakDescriptionText" style="font-size:15px">
@@ -274,7 +317,7 @@
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">País de
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">País de
                         nacimient<span style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span>
                     </label>
                     <select name="id_pais_nacimiento" id="id_pais_nacimiento" class="form-control">
@@ -282,7 +325,7 @@
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">Departamento de
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">Departamento de
                         nacimiento<span
                                 style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span>
                     </label>
@@ -292,7 +335,7 @@
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">Selecciona
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">Selecciona
                         Ciudad/municipio <span
                                 style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span>
                     </label>
@@ -300,7 +343,7 @@
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">Selecciona
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">Selecciona
                         Si eligió otra ciudad o municipio, por favor escribir cual
                         <span style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span>
                     </label>
@@ -310,7 +353,7 @@
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6" id="datos-militar">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">Tiene situación
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">Tiene situación
                         Militar definida? <span style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span></label>
                     <label class="freebirdFormviewerViewItemsPagebreakDescriptionText" style="font-size:15px">
                         Por favor seleccionar SI (tiene la tarjeta militar) y No (si esta en proceso por algún motivo)
@@ -326,7 +369,7 @@
 
 
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">
                         Se reconoce como parte de una población focalizada <span
                                 style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span>
                     </label>
@@ -348,7 +391,7 @@
 
 
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">
                         Grupo étnico <span
                                 style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span>
                     </label>
@@ -380,7 +423,7 @@
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6" id="datos-militar">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">Tipo población
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">Tipo población
                         focalizada <span
                                 style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span></label>
                     <label class="freebirdFormviewerViewItemsPagebreakDescriptionText" style="font-size:15px">
@@ -400,7 +443,7 @@
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">
                         Condición de discapacidad<span
                                 style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span>
                     </label>
@@ -444,7 +487,7 @@
             <div class="panel-heading">NIVEL EDUCATIVO</div>
             <div class="panel-body">
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">
                         Condición de discapacidad <span
                                 style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span>
                     </label>
@@ -491,7 +534,7 @@
                     </select>
                 </fieldset>
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">
                         Estado de escolaridad <span
                                 style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span>
                     </label>
@@ -514,7 +557,7 @@
                     </select>
                 </fieldset>
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">
                         Fecha de culminación de estudio más alto <span
                                 style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span>
                     </label>
@@ -526,14 +569,14 @@
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Titulo
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Titulo
                         obtenido </label>
                     <input type="text" class="form-control" id="titulo_obtenido" name="titulo_obtenido"
                            value={{(!empty($usuario)?($usuario->titulo_obtenido):'')}} >
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Institución
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Institución
                         <span style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span></label>
                     <input type="text" class="form-control" id="institucion_titulo_obtenido"
                            name="institucion_titulo_obtenido"
@@ -541,7 +584,7 @@
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Número de
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Número de
                         tarjeta profesional </label>
                     <label class="freebirdFormviewerViewItemsPagebreakDescriptionText" style="font-size:15px">
                         En caso de no tener tarjeta profesional, dejar el campo vacío
@@ -551,7 +594,7 @@
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Tiene practica
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Tiene practica
                         laboral <span
                                 style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span</label>
                     <select name="practica_laboral" id="practica_laboral" class="form-control">
@@ -570,12 +613,11 @@
         <div class="panel panel-default">
             <div class="panel-heading">EXPERIENCIAS LABORALES</div>
             <div class="panel-body">
-                <fieldset class="form-group col-sm-12">
-                    EXPERIENCIA LABORAL 1
-                </fieldset>
+
+                <div class="titulos_seccion col-sm-12">EXPERIENCIA LABORAL 1</div>
 
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Tipo de
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Tipo de
                         experiencia laboral 1<span
                                 style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span</label>
                     <select name="practica_laboral[0]" id="practica_laboral" class="form-control">
@@ -596,14 +638,14 @@
 
 
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Nombre de la
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Nombre de la
                         empresa 1 </label>
                     <input type="text" class="form-control" id="nombre_empresa" name="nombre_empresa[0]"
                            value={{(!empty($usuario)?($usuario->nombre_empresa[0]):'')}} >
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Sector 1</label>
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Sector 1</label>
                     <label class="freebirdFormviewerViewItemsPagebreakDescriptionText" style="font-size:15px">Actividad
                         de la empresa</label>
                     <input type="text" class="form-control" id="sector_empresa" name="sector_empresa[0]"
@@ -611,14 +653,14 @@
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Teléfono de la
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Teléfono de la
                         empresa 1</label>
                     <input type="text" class="form-control" id="telefono_empresa" name="telefono_empresa[0]"
                            value={{(!empty($usuario)?($usuario->telefono_empresa[0]):'')}} >
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Fecha de inicio
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Fecha de inicio
                         1</label><label class="freebirdFormviewerViewItemsPagebreakDescriptionText"
                                         style="font-size:15px">Fecha
                     </label>
@@ -628,7 +670,7 @@
 
 
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Fecha de
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Fecha de
                         finalización 1</label><label class="freebirdFormviewerViewItemsPagebreakDescriptionText"
                                                      style="font-size:15px">Fecha
                     </label>
@@ -637,31 +679,31 @@
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Cargo 1</label>
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Cargo 1</label>
                     <input type="text" class="form-control" id="cargo" name="cargo[0]"
                            value={{(!empty($usuario)?($usuario->fecha_final[0]):'')}} >
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Área de trabajo
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Área de trabajo
                         1</label>
                     <input type="text" class="form-control" id="area_trabajo" name="area_trabajo[0]"
                            value={{(!empty($usuario)?($usuario->area_trabajo[0]):'')}} >
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
-                <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Funciones y logros
-                    1</label>
-                <input type="text" class="form-control" id="funciones" name="funciones[0]"
-                       value={{(!empty($usuario)?($usuario->funciones[0]):'')}} >
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Funciones y
+                        logros
+                        1</label>
+                    <input type="text" class="form-control" id="funciones" name="funciones[0]"
+                           value={{(!empty($usuario)?($usuario->funciones[0]):'')}} >
                 </fieldset>
 
-                <fieldset class="form-group col-sm-12">
-                    EXPERIENCIA LABORAL 2
-                </fieldset>
+
+                <div class="titulos_seccion col-sm-12"> EXPERIENCIA LABORAL 2</div>
 
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Tipo de
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Tipo de
                         experiencia laboral 2<span
                                 style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span</label>
                     <select name="practica_laboral[1]" id="practica_laboral" class="form-control">
@@ -682,14 +724,14 @@
 
 
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Nombre de la
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Nombre de la
                         empresa 2 </label>
                     <input type="text" class="form-control" id="nombre_empresa" name="nombre_empresa[1]"
                            value={{(!empty($usuario)?($usuario->nombre_empresa[1]):'')}} >
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Sector 2</label>
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Sector 2</label>
                     <label class="freebirdFormviewerViewItemsPagebreakDescriptionText" style="font-size:15px">Actividad
                         de la empresa</label>
                     <input type="text" class="form-control" id="sector_empresa" name="sector_empresa[1]"
@@ -697,14 +739,14 @@
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Teléfono de la
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Teléfono de la
                         empresa 2</label>
                     <input type="text" class="form-control" id="telefono_empresa" name="telefono_empresa[1]"
                            value={{(!empty($usuario)?($usuario->telefono_empresa[1]):'')}} >
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Fecha de inicio
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Fecha de inicio
                         2</label><label class="freebirdFormviewerViewItemsPagebreakDescriptionText"
                                         style="font-size:15px">Fecha
                     </label>
@@ -714,7 +756,7 @@
 
 
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Fecha de
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Fecha de
                         finalización 2</label><label class="freebirdFormviewerViewItemsPagebreakDescriptionText"
                                                      style="font-size:15px">Fecha
                     </label>
@@ -723,31 +765,32 @@
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Cargo 2</label>
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Cargo 2</label>
                     <input type="text" class="form-control" id="cargo" name="cargo[1]"
                            value={{(!empty($usuario)?($usuario->fecha_final[1]):'')}} >
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Área de trabajo
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Área de trabajo
                         2</label>
                     <input type="text" class="form-control" id="area_trabajo" name="area_trabajo[1]"
                            value={{(!empty($usuario)?($usuario->area_trabajo[1]):'')}} >
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
-                <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Funciones y logros
-                    2</label>
-                <input type="text" class="form-control" id="funciones" name="funciones[1]"
-                       value={{(!empty($usuario)?($usuario->funciones[1]):'')}} >
-                </fieldset>
-                <fieldset class="form-group col-sm-12">
-                    OTROS CONOCIMIENTOS Y HABILIDADES
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Funciones y
+                        logros
+                        2</label>
+                    <input type="text" class="form-control" id="funciones" name="funciones[1]"
+                           value={{(!empty($usuario)?($usuario->funciones[1]):'')}} >
                 </fieldset>
 
+                <div class="titulos_seccion col-sm-12">OTROS CONOCIMIENTOS Y HABILIDADES</div>
+
                 <fieldset class="form-group col-sm-6">
-                    <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Mencione brevemente conocimientos o habilidades que tiene.</label>
-                    <textarea  class="form-control" id="conocimientos_habilidades" name="conocimientos_habilidades">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Mencione
+                        brevemente conocimientos o habilidades que tiene.</label>
+                    <textarea class="form-control" id="conocimientos_habilidades" name="conocimientos_habilidades">
                         {{(!empty($usuario)?($usuario->conocimientos_habilidades):'')}} </textarea>
                 </fieldset>
 
@@ -758,42 +801,306 @@
             <div class="panel-heading">EDUCACIÓN INFORMAL</div>
             <div class="panel-body">
 
-            <div class="freebirdFormviewerViewItemsPagebreakDescriptionText">Referenciar las dos últimas o más
-                representativas capacitaciones o certificaciones, en dado caso de no contar con ellas, dejar los campos
-                en blanco.
-            </div>
-            <div role="heading" jsname="bLLMxc"
-                 class="freebirdMaterialHeaderbannerLabelContainer freebirdFormviewerViewItemsSectionheaderBanner">
-                <div class="freebirdMaterialHeaderbannerLabelTextContainer freebirdSolidBackground">
-                    <div class="freebirdMaterialHeaderbannerSectionText freebirdFormviewerViewItemsSectionheaderBannerText">
-                        EDUCACIÓN INFORMAL
-                    </div>
+                <div class="titulos_seccion col-sm-12">EDUCACIÓN INFORMAL</div>
+
+                <div class="col-sm-12">Referenciar las dos últimas o más
+                    representativas capacitaciones o certificaciones, en dado caso de no contar con ellas, dejar los
+                    campos
+                    en blanco.
                 </div>
 
+                <div class="titulos_seccion col-sm-12">CAPACITACIÓN O CERTIFICACIÓN No 1</div>
+
+
+
+
+
+                <fieldset class="form-group col-sm-6">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Tipo de
+                        capacitación
+                        o certificación 1</label>
+                    <select name="tipo_certificacion[1]" id="tipo_certificacion" class="form-control">
+                        <option value="1" {{(!empty($usuario)?($usuario->tipo_certificacion[1] == 'Elige' ? 'selected' : ''):'')}}>
+                            Elige
+                        </option>
+                        <option value="2" {{(!empty($usuario)?($usuario->tipo_certificacion[1] == 'Curso' ? 'selected' : ''):'')}}>
+                            Curso
+                        </option>
+                        <option value="3" {{(!empty($usuario)?($usuario->tipo_certificacion[1] == 'Taller' ? 'selected' : ''):'')}}>
+                            Taller
+                        </option>
+                        <option value="4" {{(!empty($usuario)?($usuario->tipo_certificacion[1] == 'Diplomado' ? 'selected' : ''):'')}}>
+                            Diplomado
+                        </option>
+                        <option value="5" {{(!empty($usuario)?($usuario->tipo_certificacion[1] == 'Seminario' ? 'selected' : ''):'')}}>
+                            Seminario
+                        </option>
+                        <option value="6" {{(!empty($usuario)?($usuario->tipo_certificacion[1] == 'Certificación de competencias' ? 'selected' : ''):'')}}>
+                            Certificación de competencias
+                        </option>
+                    </select>
+                </fieldset>
+
+                <fieldset class="form-group col-sm-6">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Nombre del
+                        programa
+                        1</label>
+                    <input type="text" class="form-control" id="nombre_programa[1]" name="nombre_programa"
+                           value={{(!empty($usuario)?($usuario->nombre_certificacion[1]):'')}} >
+                </fieldset>
+
+                <fieldset class="form-group col-sm-6">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Estado 1</label>
+                    <select name="tipo_certificacion[1]" id="tipo_certificacion" class="form-control">
+                        <option value="1" {{(!empty($usuario)?($usuario->estado_certificacion[1] == 'Certificado' ? 'selected' : ''):'')}}>
+                            Certificado
+                        </option>
+                        <option value="2" {{(!empty($usuario)?($usuario->estado_certificacion[1] == 'No certificado' ? 'selected' : ''):'')}}>
+                            No certificado
+                        </option>
+                    </select>
+                </fieldset>
+
+                <fieldset class="form-group col-sm-6">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Duración en
+                        horas
+                        1</label>
+                    <input type="text" class="form-control" id="nombre_programa[1]" name="nombre_programa"
+                           value={{(!empty($usuario)?($usuario->duracion_certificacion[1]):'')}} >
+                </fieldset>
+
+                <fieldset class="form-group col-sm-6">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Nombre de la
+                        Institución 1</label>
+                    <input type="text" class="form-control" id="nombre_programa[1]" name="nombre_programa"
+                           value={{(!empty($usuario)?($usuario->insitucion_certificacion[1]):'')}} >
+                </fieldset>
+                <div class="titulos_seccion col-sm-12">CAPACITACIÓN O CERTIFICACIÓN No 2</div>
+
+
+
+
+                <fieldset class="form-group col-sm-6">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Tipo de
+                        capacitación o
+                        certificación 1</label>
+                    <select name="tipo_certificacion[1]" id="tipo_certificacion" class="form-control">
+                        <option value="1" {{(!empty($usuario)?($usuario->tipo_certificacion[1] == 'Elige' ? 'selected' : ''):'')}}>
+                            Elige
+                        </option>
+                        <option value="2" {{(!empty($usuario)?($usuario->tipo_certificacion[1] == 'Curso' ? 'selected' : ''):'')}}>
+                            Curso
+                        </option>
+                        <option value="3" {{(!empty($usuario)?($usuario->tipo_certificacion[1] == 'Taller' ? 'selected' : ''):'')}}>
+                            Taller
+                        </option>
+                        <option value="4" {{(!empty($usuario)?($usuario->tipo_certificacion[1] == 'Diplomado' ? 'selected' : ''):'')}}>
+                            Diplomado
+                        </option>
+                        <option value="5" {{(!empty($usuario)?($usuario->tipo_certificacion[1] == 'Seminario' ? 'selected' : ''):'')}}>
+                            Seminario
+                        </option>
+                        <option value="6" {{(!empty($usuario)?($usuario->tipo_certificacion[1] == 'Certificación de competencias' ? 'selected' : ''):'')}}>
+                            Certificación de competencias
+                        </option>
+                    </select>
+                </fieldset>
+
+                <fieldset class="form-group col-sm-6">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Nombre del
+                        programa
+                        1</label>
+                    <input type="text" class="form-control" id="nombre_programa[1]" name="nombre_programa"
+                           value={{(!empty($usuario)?($usuario->nombre_certificacion[2]):'')}} >
+                </fieldset>
+
+                <fieldset class="form-group col-sm-6">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Estado 1</label>
+                    <select name="tipo_certificacion[2]" id="tipo_certificacion" class="form-control">
+                        <option value="1" {{(!empty($usuario)?($usuario->estado_certificacion[2] == 'Certificado' ? 'selected' : ''):'')}}>
+                            Certificado
+                        </option>
+                        <option value="2" {{(!empty($usuario)?($usuario->estado_certificacion[2] == 'No certificado' ? 'selected' : ''):'')}}>
+                            No certificado
+                        </option>
+                    </select>
+                </fieldset>
+
+                <fieldset class="form-group col-sm-6">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Duración en
+                        horas
+                        1</label>
+                    <input type="text" class="form-control" id="nombre_programa[2]" name="nombre_programa"
+                           value={{(!empty($usuario)?($usuario->duracion_certificacion[2]):'')}} >
+                </fieldset>
+
+                <fieldset class="form-group col-sm-6">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Nombre de la
+                        Institución
+                        1</label>
+                    <input type="text" class="form-control" id="nombre_programa[2]" name="nombre_programa"
+                           value={{(!empty($usuario)?($usuario->insitucion_certificacion[2]):'')}} >
+                </fieldset>
+
+                <div class="titulos_seccion col-sm-12">OTROS CONOCIMIENTOS Y HABILIDADES</div>
+
+                <fieldset class="form-group col-sm-6">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Mencione
+                        brevemente
+                        conocimientos o habilidades que tiene.</label>
+                    <textarea class="form-control" id="conocimientos_habilidades_certificacion"
+                              name="conocimientos_habilidades_certificacion">
+                        {{(!empty($usuario)?($usuario->conocimientos_habilidades_certificacion):'')}} </textarea>
+                </fieldset>
+
+                <div class="titulos_seccion col-sm-12">PERFIL LABORAL</div>
+
+                <fieldset class="form-group col-sm-6">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Mencione su
+                        perfil
+                        laboral</label>
+                    <textarea class="form-control" id="perfil_laboral" name="perfil_laboral">
+                        {{(!empty($usuario)?($usuario->perfil_laboral):'')}} </textarea>
+                </fieldset>
+
+                <fieldset class="form-group col-sm-6">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Aspiración
+                        Salarial</label>
+                    <input type="number" class="form-control" id="nombre_programa[2]" name="nombre_programa"
+                           value={{(!empty($usuario)?($usuario->aspiracion_salarial):'')}} >
+                </fieldset>
+
+                <fieldset class="form-group col-sm-6">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Posibilidad de
+                        viajar
+                        <span style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span></label>
+                    <select required name="posibilidad_viajar" id="posibilidad_viajar" class="form-control">
+                        <option value="1" {{(!empty($usuario)?($usuario->posibilidad_viajar == 'Si' ? 'selected' : ''):'')}}>
+                            Si
+                        </option>
+                        <option value="2" {{(!empty($usuario)?($usuario->posibilidad_viajar == 'No' ? 'selected' : ''):'')}}>
+                            No
+                        </option>
+                    </select>
+                </fieldset>
+
+                <fieldset class="form-group col-sm-6">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Interés en ofertas de teletrabajo
+                        <span style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span></label>
+                    <select required name="posibilidad_viajar" id="posibilidad_viajar" class="form-control">
+                        <option value="1" {{(!empty($usuario)?($usuario->tipo_certificacion[1] == 'Si' ? 'selected' : ''):'')}}>
+                            Si
+                        </option>
+                        <option value="2" {{(!empty($usuario)?($usuario->tipo_certificacion[1] == 'No' ? 'selected' : ''):'')}}>
+                            No
+                        </option>
+                    </select>
+                </fieldset>
+
+                <fieldset class="form-group col-sm-6">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Situación laboral actual
+                        <span style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span></label>
+                    <select required name="situacion_laboral" id="situacion_laboral" class="form-control">
+                        <option value="" {{(!empty($usuario)?($usuario->situacion_laboral == 'Desempleado' ? 'selected' : ''):'')}} >Desempleado</option>
+                        <option value="" {{(!empty($usuario)?($usuario->situacion_laboral == 'Primer empleo' ? 'selected' : ''):'')}} >Primer empleo</option>
+                        <option value="" {{(!empty($usuario)?($usuario->situacion_laboral == 'Empleado' ? 'selected' : ''):'')}} >Empleado</option>
+                        <option value="" {{(!empty($usuario)?($usuario->situacion_laboral == 'Independiente' ? 'selected' : ''):'')}} >Independiente</option>
+                    </select>
+                </fieldset>
+
+                <fieldset class="form-group col-sm-6">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Propiedad de medio de transporte
+                       </label>
+                    <select  name="propietario_transporte" id="propietario_transporte" class="form-control">
+                        <option value="1" {{(!empty($usuario)?($usuario->propietario_transporte == 'Si' ? 'selected' : ''):'')}}>
+                            Si
+                        </option>
+                        <option value="2" {{(!empty($usuario)?($usuario->propietario_transporte == 'No' ? 'selected' : ''):'')}}>
+                            No
+                        </option>
+                    </select>
+                </fieldset>
+
+                <fieldset class="form-group col-sm-6">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Licencia de conducción
+                        </label>
+                    <select  name="propietario_transporte" id="propietario_transporte" class="form-control">
+                        <option value="1" {{(!empty($usuario)?($usuario->propietario_transporte == 'No' ? 'selected' : ''):'')}}>
+                            No
+                        </option>
+                        <option value="2" {{(!empty($usuario)?($usuario->propietario_transporte == 'Carro' ? 'selected' : ''):'')}}>
+                            Carro
+                        </option>
+                        <option value="3" {{(!empty($usuario)?($usuario->propietario_transporte == 'Moto' ? 'selected' : ''):'')}}>
+                            Moto
+                        </option>
+                    </select>
+                </fieldset>
+
+                <fieldset class="form-group col-sm-6">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Categoría de la licencia de conducción</label>
+                    <label class="freebirdFormviewerViewItemsPagebreakDescriptionText" style="font-size:15px">En caso de no conocerla o no tenerla, dejar el campo en blanco.
+                    </label>
+                    <input type="text" class="form-control" id="categoria_licencia" name="categoria_licencia"
+                           value={{(!empty($usuario)?($usuario->categoria_licencia):'')}} >
+                </fieldset>
+
+                <fieldset class="form-group col-sm-6">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Intereses ocupacionales</label>
+                    <label class="freebirdFormviewerViewItemsPagebreakDescriptionText" style="font-size:15px">Un interés ocupacional es aquel que se relaciona con el desempeño de un trabajo. Así a una persona le puede interesar la Medicina o la Enfermería, porque dentro de sus valores está el ayudar a las personas. Una persona podría querer ser periodista, porque le gusta la comunicación y las relaciones con la sociedad. Son solo ejemplos.
+                    </label>
+                    <input type="text" class="form-control" id="intereses_ocupacionales" name="intereses_ocupacionales"
+                           value={{(!empty($usuario)?($usuario->intereses_ocupacionales):'')}} >
+                </fieldset>
+
             </div>
-            <div class="freebirdMaterialHeaderbannerLabelTextContainer freebirdSolidBackground"><div class="freebirdMaterialHeaderbannerSectionText freebirdFormviewerViewItemsSectionheaderBannerText">CAPACITACIÓN O CERTIFICACIÓN No 1</div></div>
+        </div>
+
+
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">IDIOMAS Y DIALECTOS</div>
+            <div class="panel-body">
+
+                <fieldset class="form-group col-sm-6">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Idiomas y dialectos No 1</label>
+
+                    <input type="text" class="form-control" id="intereses_ocupacionales" name="intereses_ocupacionales"
+                           value={{(!empty($usuario)?($usuario->idioma[1]):'')}} >
+                </fieldset>
+
+
+                <fieldset class="form-group col-sm-6">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Nivel de idioma No 1 </label>
+                    <select required name="situacion_laboral" id="situacion_laboral" class="form-control">
+                        <option value="1" {{(!empty($usuario)?($usuario->idioma_nivel[1] == '1' ? 'selected' : ''):'')}} >1</option>
+                        <option value="2" {{(!empty($usuario)?($usuario->idioma_nivel[1] == '2' ? 'selected' : ''):'')}} >2</option>
+                        <option value="3" {{(!empty($usuario)?($usuario->idioma_nivel[1] == '3' ? 'selected' : ''):'')}} >3</option>
+                        <option value="4" {{(!empty($usuario)?($usuario->idioma_nivel[1] == '4' ? 'selected' : ''):'')}} >4</option>
+                    </select>
+                </fieldset>
+
+
+                <fieldset class="form-group col-sm-6">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Idiomas y dialectos No 2</label>
+
+                    <input type="text" class="form-control" id="intereses_ocupacionales" name="intereses_ocupacionales"
+                           value={{(!empty($usuario)?($usuario->idioma[2]):'')}} >
+                </fieldset>
+
+
+                <fieldset class="form-group col-sm-6">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Nivel de idioma No 2 </label>
+                    <select required name="situacion_laboral" id="situacion_laboral" class="form-control">
+                        <option value="1" {{(!empty($usuario)?($usuario->idioma_nivel[2] == '1' ? 'selected' : ''):'')}} >1</option>
+                        <option value="2" {{(!empty($usuario)?($usuario->idioma_nivel[2] == '2' ? 'selected' : ''):'')}} >2</option>
+                        <option value="3" {{(!empty($usuario)?($usuario->idioma_nivel[2] == '3' ? 'selected' : ''):'')}} >3</option>
+                        <option value="4" {{(!empty($usuario)?($usuario->idioma_nivel[2] == '4' ? 'selected' : ''):'')}} >4</option>
+                    </select>
+                </fieldset>
+
             </div>
-
-
-            <fieldset class="form-group col-sm-6">
-                <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Tipo de capacitación o certificación 1</label>
-                <select name="tipo_certificacion[1]" id="tipo_certificacion" class="form-control">
-                    <option value="1" {{(!empty($usuario)?($usuario->tipo_certificacion[1] == 'Elige' ? 'selected' : ''):'')}}>Elige</option>
-                    <option value="2" {{(!empty($usuario)?($usuario->tipo_certificacion[1] == 'Curso' ? 'selected' : ''):'')}}>Curso</option>
-                    <option value="3" {{(!empty($usuario)?($usuario->tipo_certificacion[1] == 'Taller' ? 'selected' : ''):'')}}>Taller</option>
-                    <option value="4" {{(!empty($usuario)?($usuario->tipo_certificacion[1] == 'Diplomado' ? 'selected' : ''):'')}}>Diplomado</option>
-                    <option value="5" {{(!empty($usuario)?($usuario->tipo_certificacion[1] == 'Seminario' ? 'selected' : ''):'')}}>Seminario</option>
-                    <option value="6" {{(!empty($usuario)?($usuario->tipo_certificacion[1] == 'Certificación de competencias' ? 'selected' : ''):'')}}>Certificación de competencias</option>
-                </select>
-            </fieldset>
-
-            <fieldset class="form-group col-sm-6">
-                <label  class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Nombre del programa 1</label>
-                <input type="text" class="form-control" id="nombre_programa[1]" name="nombre_programa"
-                       value={{(!empty($usuario)?($usuario->nombre_programa[1]):'')}} >
-            </fieldset>
-
-
         </div>
 
 
