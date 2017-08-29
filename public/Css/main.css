@@ -45,6 +45,9 @@ textarea.x2 {
 	height: 200px;
 }
 
+.freebirdFormviewerViewItemsItemItemTitle{
+width: 100%;
+}
 textarea {
 	resize: vertical;
 }
