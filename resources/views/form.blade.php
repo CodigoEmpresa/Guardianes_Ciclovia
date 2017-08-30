@@ -1103,6 +1103,48 @@
             </div>
         </div>
 
+        <div class="panel panel-default">
+            <div class="panel-heading">Datos personales</div>
+            <div class="panel-body">
+                <div class="col-sm-12">Esta sección, corresponde a preguntas enfocadas directamente con el rol a desempeñar como Aspirante a Guardián de Ciclovía, tómese el tiempo para leer, comprender y responder de acuerdo a sus intereses personales.
+                </div>
+                <fieldset class="form-group col-sm-6">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Dispone de tiempo los días domingos y festivos entre las 6:00 am y las 4:00 pm</label>
+                    <select required name="dispone_tiempo" id="dispone_tiempo" class="form-control">
+                        <option value="1" {{(!empty($usuario)?($usuario->dispone_tiempo == 'Si' ? 'selected' : ''):'')}} >1</option>
+                        <option value="2" {{(!empty($usuario)?($usuario->dispone_tiempo == 'No' ? 'selected' : ''):'')}} >2</option>
+                    </select>
+                </fieldset>
+
+                <fieldset class="form-group col-sm-6">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Esta dispuesto a cumplir con una presentación personal acorde a las directrices del IDRD</label>
+                    <select required name="presentacion_personal" id="presentacion_personal" class="form-control">
+                        <option value="1" {{(!empty($usuario)?($usuario->presentacion_personal == 'Si' ? 'selected' : ''):'')}} >1</option>
+                        <option value="2" {{(!empty($usuario)?($usuario->presentacion_personal == 'No' ? 'selected' : ''):'')}} >2</option>
+                    </select>
+                </fieldset>
+
+                <fieldset class="form-group col-sm-6">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Comprende y acepta que inasistir reiteradamente a jornadas durante la etapa de preparación y acondicionamiento (justificadas e injustificadas), generan la exclusión del proceso
+                    </label>
+                    <select required name="comprende_acepta" id="comprende_acepta" class="form-control">
+                        <option value="1" {{(!empty($usuario)?($usuario->comprende_acepta == 'Si' ? 'selected' : ''):'')}} >1</option>
+                        <option value="2" {{(!empty($usuario)?($usuario->comprende_acepta == 'No' ? 'selected' : ''):'')}} >2</option>
+                    </select>
+                </fieldset>
+
+                <fieldset class="form-group col-sm-6">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Cuenta con bicicleta todo terreno</label>
+                    <label class="freebirdFormviewerViewItemsPagebreakDescriptionText" style="font-size:15px">No se permite bicicletas de ruta, urbanas y/o playeras con cambios adaptados. Por otro lado la bicicleta todo terreno permitida no debe tener parrilla.</label>
+                    <select required name="bicicleta_todoterreno" id="bicicleta_todoterreno" class="form-control"><option value="1" {{(!empty($usuario)?($usuario->bicicleta_todoterreno == 'Si' ? 'selected' : ''):'')}} >1</option>
+                        <option value="2" {{(!empty($usuario)?($usuario->bicicleta_todoterreno == 'No' ? 'selected' : ''):'')}} >2</option>
+                    </select>
+                </fieldset>
+
+
+        </div>
+        </div>
+
 
     </form>
     <?php } ?>
