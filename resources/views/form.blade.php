@@ -115,6 +115,12 @@
             z-index: -14;
             left: 0px;
         }
+
+        form#form_gen {
+            -webkit-box-shadow: 10px 10px 5px 0px rgba(146, 143, 143, 0.35);
+            -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+            box-shadow: 15px 20px 52px 0px rgba(0, 0, 0, 0.17);
+        }
     </style>
     <?php
 
@@ -1191,9 +1197,9 @@
                     <input required type="text" class="form-control" id="opcional_antecedente" name="opcional_antecedente" value={{(!empty($usuario)?($usuario->opcional_antecedente):'')}} >
                 </fieldset>
 
-                <div class="titulos_seccion col-sm-12">CAPACITACIÓN O CERTIFICACIÓN No 1</div>
+                <div class="titulos_seccion col-sm-12">AVISO DE AUTORIZACIÓN PARA TRATAMIENTO DE DATOS PERSONALES</div>
 
-                <div class="col-sm-12">El uso y acceso al aplicativo del Sistema de Información del Servicio Público de Empleo –SISE- está sujeto a los siguientes "Términos y Condiciones de Uso" que reglamentan las políticas frente al tratamiento de la información que reposa en las bases de datos del aplicativo del Servicio Público de Empleo, en adelante SPE. Para hacer uso de este Servicio, usted deberá leer atentamente estas condiciones y declarar su acuerdo diligenciando la casilla “Acepto los Términos y Condiciones” que aparecen al finalizar este texto. En caso de que no señale dicha casilla o no acepte estas condiciones, no podrá utilizar este Sitio Web. Al utilizar este Sitio Web, usted declara la aceptación del tratamiento de la información que cargue al mismo, con el propósito que la misma circule y sea compartida para efectos de
+                <div class="col-sm-12" style="text-align: justify">El uso y acceso al aplicativo del Sistema de Información del Servicio Público de Empleo –SISE- está sujeto a los siguientes "Términos y Condiciones de Uso" que reglamentan las políticas frente al tratamiento de la información que reposa en las bases de datos del aplicativo del Servicio Público de Empleo, en adelante SPE. Para hacer uso de este Servicio, usted deberá leer atentamente estas condiciones y declarar su acuerdo diligenciando la casilla “Acepto los Términos y Condiciones” que aparecen al finalizar este texto. En caso de que no señale dicha casilla o no acepte estas condiciones, no podrá utilizar este Sitio Web. Al utilizar este Sitio Web, usted declara la aceptación del tratamiento de la información que cargue al mismo, con el propósito que la misma circule y sea compartida para efectos de
                     intermediación laboral. Los alcances de dicha intermediación se detallan más adelante. El SPE podrá revisar estos Términos y Condiciones de Uso en cualquier momento, actualizando su contenido. Usted deberá visitar esta página cada vez que acceda al Sitio para revisar los Términos y Condiciones de Uso, en cuanto son vinculantes.
                 </div>
 
