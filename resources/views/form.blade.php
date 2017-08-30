@@ -40,6 +40,13 @@
     ?>
 
     <style>
+
+        input[type="radio"], input[type="checkbox"] {
+            margin: 7px 0 0;
+            margin-top: 1px \9;
+            line-height: normal;
+            width: 18px;
+        }
         .ficheros {
             background: rgb(48, 164, 231);
             padding: 10px;
@@ -96,6 +103,18 @@
             transform: skew(-211deg);
         }
 
+        .freebirdHeaderMast {
+            background-image: url(https://lh3.googleusercontent.com/sZwhPqe-QvMtgcXvqaUbTZ2oCSg1TovOmIs9H8VjzVOSKOk7b281XrMgyjHyF0vPWNtuATaXzg=w1042);
+            background-size: cover;
+            background-position: center;
+            color: rgba(255, 255, 255, 1);
+            position: absolute;
+            top: 0px;
+            width: 100%;
+            height: 250px;
+            z-index: -14;
+            left: 0px;
+        }
     </style>
     <?php
 
@@ -119,6 +138,7 @@
     <input type="hidden" name="url" value="{{url('/')}}">
 
     <link rel="stylesheet" type="text/css" href="{{asset('public/Css/form.css?n=10')}}">
+    <div class="freebirdFormviewerViewFormBanner freebirdHeaderMast"></div>
 
     <form method="POST" action="{{route('insertar')}}" id="form_gen" enctype="multipart/form-data">
         <input type="hidden" id="editar" name="editar"
@@ -263,7 +283,7 @@
                     </label>
                     <input required type="text" class="form-control" id="direccion" name="direccion"
                            value={{(!empty($usuario)?($usuario->direccion):'')}} >
-                </fieldset>
+                 </fieldset>
 
             </div>
         </div>
@@ -1110,7 +1130,7 @@
                 </div>
                 <fieldset class="form-group col-sm-6">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Dispone de tiempo los días domingos y festivos entre las 6:00 am y las 4:00 pm</label>
-                    <select required name="dispone_tiempo" id="dispone_tiempo" class="form-control">
+                    <select  name="dispone_tiempo" id="dispone_tiempo" class="form-control">
                         <option value="1" {{(!empty($usuario)?($usuario->dispone_tiempo == 'Si' ? 'selected' : ''):'')}} >1</option>
                         <option value="2" {{(!empty($usuario)?($usuario->dispone_tiempo == 'No' ? 'selected' : ''):'')}} >2</option>
                     </select>
@@ -1118,7 +1138,7 @@
 
                 <fieldset class="form-group col-sm-6">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Esta dispuesto a cumplir con una presentación personal acorde a las directrices del IDRD</label>
-                    <select required name="presentacion_personal" id="presentacion_personal" class="form-control">
+                    <select  name="presentacion_personal" id="presentacion_personal" class="form-control">
                         <option value="1" {{(!empty($usuario)?($usuario->presentacion_personal == 'Si' ? 'selected' : ''):'')}} >1</option>
                         <option value="2" {{(!empty($usuario)?($usuario->presentacion_personal == 'No' ? 'selected' : ''):'')}} >2</option>
                     </select>
@@ -1127,7 +1147,7 @@
                 <fieldset class="form-group col-sm-6">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Comprende y acepta que inasistir reiteradamente a jornadas durante la etapa de preparación y acondicionamiento (justificadas e injustificadas), generan la exclusión del proceso
                     </label>
-                    <select required name="comprende_acepta" id="comprende_acepta" class="form-control">
+                    <select  name="comprende_acepta" id="comprende_acepta" class="form-control">
                         <option value="1" {{(!empty($usuario)?($usuario->comprende_acepta == 'Si' ? 'selected' : ''):'')}} >1</option>
                         <option value="2" {{(!empty($usuario)?($usuario->comprende_acepta == 'No' ? 'selected' : ''):'')}} >2</option>
                     </select>
@@ -1136,12 +1156,63 @@
                 <fieldset class="form-group col-sm-6">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Cuenta con bicicleta todo terreno</label>
                     <label class="freebirdFormviewerViewItemsPagebreakDescriptionText" style="font-size:15px">No se permite bicicletas de ruta, urbanas y/o playeras con cambios adaptados. Por otro lado la bicicleta todo terreno permitida no debe tener parrilla.</label>
-                    <select required name="bicicleta_todoterreno" id="bicicleta_todoterreno" class="form-control"><option value="1" {{(!empty($usuario)?($usuario->bicicleta_todoterreno == 'Si' ? 'selected' : ''):'')}} >1</option>
+                    <select  name="bicicleta_todoterreno" id="bicicleta_todoterreno" class="form-control"><option value="1" {{(!empty($usuario)?($usuario->bicicleta_todoterreno == 'Si' ? 'selected' : ''):'')}} >1</option>
                         <option value="2" {{(!empty($usuario)?($usuario->bicicleta_todoterreno == 'No' ? 'selected' : ''):'')}} >2</option>
                     </select>
                 </fieldset>
 
+                <fieldset class="form-group col-sm-6">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Se encuentra actualmente afiliado a un prestador del servicio del sistema de seguridad social en salud (Cotizante, beneficiario o dependiente). <span style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span></label>
 
+                    <select required name="afiliado" id="afiliado" class="form-control">
+                        <option value="1" {{(!empty($usuario)?($usuario->afiliado == 'Si' ? 'selected' : ''):'')}} >1</option>
+                        <option value="2" {{(!empty($usuario)?($usuario->afiliado == 'No' ? 'selected' : ''):'')}} >2</option>
+                        <option value="3" {{(!empty($usuario)?($usuario->afiliado == 'Otro' ? 'selected' : ''):'')}} >2</option>
+                    </select>
+                    <label>Si selecciono otro:</label>
+                    <input  type="text" class="form-control" id="seguridad_social_otro" name="seguridad_social_otro"
+                           value={{(!empty($usuario)?($usuario->seguridad_social_otro):'')}} >
+                </fieldset>
+
+                <fieldset class="form-group col-sm-6">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Tiene algún antecedente de salud, física y/o psicológica que le impida realizar alguna actividad <span style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span></label>
+
+                    <select required name="antecedente_salud" id="antecedente_salud" class="form-control">
+                        <option value="1" {{(!empty($usuario)?($usuario->antecedente_salud == 'Si' ? 'selected' : ''):'')}} >1</option>
+                        <option value="2" {{(!empty($usuario)?($usuario->antecedente_salud == 'No' ? 'selected' : ''):'')}} >2</option>
+
+                    </select>
+
+                </fieldset>
+
+                <fieldset class="form-group col-sm-6">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Si su respuesta es afirmativa, indique el antecedente</label>
+
+                    <input required type="text" class="form-control" id="opcional_antecedente" name="opcional_antecedente" value={{(!empty($usuario)?($usuario->opcional_antecedente):'')}} >
+                </fieldset>
+
+                <div class="titulos_seccion col-sm-12">CAPACITACIÓN O CERTIFICACIÓN No 1</div>
+
+                <div class="col-sm-12">El uso y acceso al aplicativo del Sistema de Información del Servicio Público de Empleo –SISE- está sujeto a los siguientes "Términos y Condiciones de Uso" que reglamentan las políticas frente al tratamiento de la información que reposa en las bases de datos del aplicativo del Servicio Público de Empleo, en adelante SPE. Para hacer uso de este Servicio, usted deberá leer atentamente estas condiciones y declarar su acuerdo diligenciando la casilla “Acepto los Términos y Condiciones” que aparecen al finalizar este texto. En caso de que no señale dicha casilla o no acepte estas condiciones, no podrá utilizar este Sitio Web. Al utilizar este Sitio Web, usted declara la aceptación del tratamiento de la información que cargue al mismo, con el propósito que la misma circule y sea compartida para efectos de
+                    intermediación laboral. Los alcances de dicha intermediación se detallan más adelante. El SPE podrá revisar estos Términos y Condiciones de Uso en cualquier momento, actualizando su contenido. Usted deberá visitar esta página cada vez que acceda al Sitio para revisar los Términos y Condiciones de Uso, en cuanto son vinculantes.
+                </div>
+
+
+                <fieldset class="form-group col-sm-6">
+                    <input required type="radio" class="form-control col-sm-2" id="acepto_terminos" name="opcional_antecedente" value={{(!empty($usuario)?($usuario->acepto_terminos):'')}} >
+                    <label style="padding-top: 15px;" class="freebirdFormviewerViewItemsItemItemTitle col-sm-10" for="formGroupExampleInput">Acepto términos y condiciones<span
+                                style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span </label>
+
+
+                </fieldset>
+
+
+                <fieldset class="form-group col-sm-12">
+                <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">FIRMA <span
+                            style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span</label>
+
+                <input required type="text" class="form-control" id="firma" name="firma" value={{(!empty($usuario)?($usuario->firma):'')}} >
+                </fieldset>
         </div>
         </div>
 
