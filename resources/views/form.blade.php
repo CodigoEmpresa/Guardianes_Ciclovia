@@ -158,7 +158,6 @@
                         identidad <span style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span></label>
                     <input title="Se necesita una cedula" required type="number" class="form-control" id="cedula"
                            name="cedula" value={{(!empty($usuario)?$usuario->cedula:'')}} >
-
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
@@ -178,8 +177,7 @@
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
-                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">Nombres <span
-                                style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span></label>
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">Nombres <span style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span></label>
                     <label class="freebirdFormviewerViewItemsPagebreakDescriptionText" style="font-size:15px">
                         Diligenciar en MAYÚSCULA y tal cual como aparece en el documento de identidad
                     </label>
@@ -981,7 +979,7 @@
 
                 <div class="titulos_seccion col-sm-12">PERFIL LABORAL</div>
 
-                <fieldset class="form-group col-sm-6">
+                <fieldset class="form-group col-sm-12">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Mencione su
                         perfil
                         laboral</label>
@@ -989,14 +987,14 @@
                         {{(!empty($usuario)?($usuario->perfil_laboral):'')}} </textarea>
                 </fieldset>
 
-                <fieldset class="form-group col-sm-6">
+                <fieldset class="form-group col-sm-12">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Aspiración
                         Salarial</label>
                     <input type="number" class="form-control" id="nombre_programa[2]" name="nombre_programa"
                            value={{(!empty($usuario)?($usuario->aspiracion_salarial):'')}} >
                 </fieldset>
 
-                <fieldset class="form-group col-sm-6">
+                <fieldset class="form-group col-sm-12">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Posibilidad de
                         viajar
                         <span style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span></label>
@@ -1010,7 +1008,7 @@
                     </select>
                 </fieldset>
 
-                <fieldset class="form-group col-sm-6">
+                <fieldset class="form-group col-sm-12">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Interés en ofertas de teletrabajo
                         <span style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span></label>
                     <select required name="posibilidad_viajar" id="posibilidad_viajar" class="form-control">
@@ -1023,7 +1021,7 @@
                     </select>
                 </fieldset>
 
-                <fieldset class="form-group col-sm-6">
+                <fieldset class="form-group col-sm-12">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Situación laboral actual
                         <span style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span></label>
                     <select required name="situacion_laboral" id="situacion_laboral" class="form-control">
@@ -1034,7 +1032,7 @@
                     </select>
                 </fieldset>
 
-                <fieldset class="form-group col-sm-6">
+                <fieldset class="form-group col-sm-12">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Propiedad de medio de transporte
                        </label>
                     <select  name="propietario_transporte" id="propietario_transporte" class="form-control">
@@ -1047,7 +1045,7 @@
                     </select>
                 </fieldset>
 
-                <fieldset class="form-group col-sm-6">
+                <fieldset class="form-group col-sm-12">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Licencia de conducción
                         </label>
                     <select  name="propietario_transporte" id="propietario_transporte" class="form-control">
@@ -1063,7 +1061,7 @@
                     </select>
                 </fieldset>
 
-                <fieldset class="form-group col-sm-6">
+                <fieldset class="form-group col-sm-12">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Categoría de la licencia de conducción</label>
                     <label class="freebirdFormviewerViewItemsPagebreakDescriptionText" style="font-size:15px">En caso de no conocerla o no tenerla, dejar el campo en blanco.
                     </label>
@@ -1071,7 +1069,7 @@
                            value={{(!empty($usuario)?($usuario->categoria_licencia):'')}} >
                 </fieldset>
 
-                <fieldset class="form-group col-sm-6">
+                <fieldset class="form-group col-sm-12">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Intereses ocupacionales</label>
                     <label class="freebirdFormviewerViewItemsPagebreakDescriptionText" style="font-size:15px">Un interés ocupacional es aquel que se relaciona con el desempeño de un trabajo. Así a una persona le puede interesar la Medicina o la Enfermería, porque dentro de sus valores está el ayudar a las personas. Una persona podría querer ser periodista, porque le gusta la comunicación y las relaciones con la sociedad. Son solo ejemplos.
                     </label>
