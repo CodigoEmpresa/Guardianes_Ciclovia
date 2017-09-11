@@ -621,7 +621,7 @@
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Tiene practica
                         laboral <span
                                 style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span</label>
-                    <select name="practica_laboral" id="practica_laboral" class="form-control">
+                    <select name="practica_laboral_select" id="practica_laboral" class="form-control">
 
                         <option value="1" {{(!empty($usuario)?($usuario->practica_laboral == 'Si' ? 'selected' : ''):'')}}>
                             Si
@@ -843,23 +843,23 @@
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Tipo de
                         capacitación
                         o certificación 1</label>
-                    <select name="tipo_certificacion[1]" id="tipo_certificacion" class="form-control">
-                        <option value="1" {{(!empty($usuario)?($usuario->tipo_certificacion[1] == 'Elige' ? 'selected' : ''):'')}}>
+                    <select name="tipo_certificacion[0]" id="tipo_certificacion" class="form-control">
+                        <option value="1" {{(!empty($usuario)?($usuario->tipo_certificacion[0] == 'Elige' ? 'selected' : ''):'')}}>
                             Elige
                         </option>
-                        <option value="2" {{(!empty($usuario)?($usuario->tipo_certificacion[1] == 'Curso' ? 'selected' : ''):'')}}>
+                        <option value="2" {{(!empty($usuario)?($usuario->tipo_certificacion[0] == 'Curso' ? 'selected' : ''):'')}}>
                             Curso
                         </option>
-                        <option value="3" {{(!empty($usuario)?($usuario->tipo_certificacion[1] == 'Taller' ? 'selected' : ''):'')}}>
+                        <option value="3" {{(!empty($usuario)?($usuario->tipo_certificacion[0] == 'Taller' ? 'selected' : ''):'')}}>
                             Taller
                         </option>
-                        <option value="4" {{(!empty($usuario)?($usuario->tipo_certificacion[1] == 'Diplomado' ? 'selected' : ''):'')}}>
+                        <option value="4" {{(!empty($usuario)?($usuario->tipo_certificacion[0] == 'Diplomado' ? 'selected' : ''):'')}}>
                             Diplomado
                         </option>
-                        <option value="5" {{(!empty($usuario)?($usuario->tipo_certificacion[1] == 'Seminario' ? 'selected' : ''):'')}}>
+                        <option value="5" {{(!empty($usuario)?($usuario->tipo_certificacion[0] == 'Seminario' ? 'selected' : ''):'')}}>
                             Seminario
                         </option>
-                        <option value="6" {{(!empty($usuario)?($usuario->tipo_certificacion[1] == 'Certificación de competencias' ? 'selected' : ''):'')}}>
+                        <option value="6" {{(!empty($usuario)?($usuario->tipo_certificacion[0] == 'Certificación de competencias' ? 'selected' : ''):'')}}>
                             Certificación de competencias
                         </option>
                     </select>
@@ -869,17 +869,17 @@
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Nombre del
                         programa
                         1</label>
-                    <input type="text" class="form-control" id="nombre_programa[1]" name="nombre_programa"
-                           value={{(!empty($usuario)?($usuario->nombre_certificacion[1]):'')}} >
+                    <input type="text" class="form-control" id="nombre_certificacion" name="nombre_certificacion[0]"
+                           value={{(!empty($usuario)?($usuario->nombre_certificacion[0]):'')}} >
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Estado 1</label>
-                    <select name="tipo_certificacion[1]" id="tipo_certificacion" class="form-control">
-                        <option value="1" {{(!empty($usuario)?($usuario->estado_certificacion[1] == 'Certificado' ? 'selected' : ''):'')}}>
+                    <select name="tipo_certificacion[0]" id="tipo_certificacion" class="form-control">
+                        <option value="1" {{(!empty($usuario)?($usuario->estado_certificacion[0] == 'Certificado' ? 'selected' : ''):'')}}>
                             Certificado
                         </option>
-                        <option value="2" {{(!empty($usuario)?($usuario->estado_certificacion[1] == 'No certificado' ? 'selected' : ''):'')}}>
+                        <option value="2" {{(!empty($usuario)?($usuario->estado_certificacion[0] == 'No certificado' ? 'selected' : ''):'')}}>
                             No certificado
                         </option>
                     </select>
@@ -889,15 +889,15 @@
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Duración en
                         horas
                         1</label>
-                    <input type="text" class="form-control" id="nombre_programa[1]" name="nombre_programa"
-                           value={{(!empty($usuario)?($usuario->duracion_certificacion[1]):'')}} >
+                    <input type="text" class="form-control" id="nombre_programa[0]" name="nombre_programa"
+                           value={{(!empty($usuario)?($usuario->duracion_certificacion[0]):'')}} >
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Nombre de la
                         Institución 1</label>
-                    <input type="text" class="form-control" id="nombre_programa[1]" name="nombre_programa"
-                           value={{(!empty($usuario)?($usuario->insitucion_certificacion[1]):'')}} >
+                    <input type="text" class="form-control" id="nombre_programa[0]" name="nombre_programa"
+                           value={{(!empty($usuario)?($usuario->insitucion_certificacion[0]):'')}} >
                 </fieldset>
                 <div class="titulos_seccion col-sm-12">CAPACITACIÓN O CERTIFICACIÓN No 2</div>
 
@@ -934,17 +934,17 @@
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Nombre del
                         programa
                         1</label>
-                    <input type="text" class="form-control" id="nombre_programa[1]" name="nombre_programa"
-                           value={{(!empty($usuario)?($usuario->nombre_certificacion[2]):'')}} >
+                    <input type="text" class="form-control" id="nombre_certificacion" name="nombre_certificacion[1]"
+                           value={{(!empty($usuario)?($usuario->nombre_certificacion[1]):'')}} >
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Estado 1</label>
-                    <select name="tipo_certificacion[2]" id="tipo_certificacion" class="form-control">
-                        <option value="1" {{(!empty($usuario)?($usuario->estado_certificacion[2] == 'Certificado' ? 'selected' : ''):'')}}>
+                    <select name="tipo_certificacion[1]" id="tipo_certificacion" class="form-control">
+                        <option value="1" {{(!empty($usuario)?($usuario->estado_certificacion[1] == 'Certificado' ? 'selected' : ''):'')}}>
                             Certificado
                         </option>
-                        <option value="2" {{(!empty($usuario)?($usuario->estado_certificacion[2] == 'No certificado' ? 'selected' : ''):'')}}>
+                        <option value="2" {{(!empty($usuario)?($usuario->estado_certificacion[1] == 'No certificado' ? 'selected' : ''):'')}}>
                             No certificado
                         </option>
                     </select>
@@ -954,16 +954,16 @@
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Duración en
                         horas
                         1</label>
-                    <input type="text" class="form-control" id="nombre_programa[2]" name="nombre_programa"
-                           value={{(!empty($usuario)?($usuario->duracion_certificacion[2]):'')}} >
+                    <input type="text" class="form-control" id="nombre_programa[1]" name="nombre_programa"
+                           value={{(!empty($usuario)?($usuario->duracion_certificacion[1]):'')}} >
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Nombre de la
                         Institución
                         1</label>
-                    <input type="text" class="form-control" id="nombre_programa[2]" name="nombre_programa"
-                           value={{(!empty($usuario)?($usuario->insitucion_certificacion[2]):'')}} >
+                    <input type="text" class="form-control" id="nombre_programa[1]" name="nombre_programa"
+                           value={{(!empty($usuario)?($usuario->insitucion_certificacion[1]):'')}} >
                 </fieldset>
 
                 <div class="titulos_seccion col-sm-12">OTROS CONOCIMIENTOS Y HABILIDADES</div>
@@ -990,7 +990,7 @@
                 <fieldset class="form-group col-sm-12">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Aspiración
                         Salarial</label>
-                    <input type="number" class="form-control" id="nombre_programa[2]" name="nombre_programa"
+                    <input type="number" class="form-control" id="aspiracion_salarial" name="aspiracion_salarial"
                            value={{(!empty($usuario)?($usuario->aspiracion_salarial):'')}} >
                 </fieldset>
 
@@ -1011,11 +1011,11 @@
                 <fieldset class="form-group col-sm-12">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Interés en ofertas de teletrabajo
                         <span style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span></label>
-                    <select required name="posibilidad_viajar" id="posibilidad_viajar" class="form-control">
-                        <option value="1" {{(!empty($usuario)?($usuario->tipo_certificacion[1] == 'Si' ? 'selected' : ''):'')}}>
+                    <select required name="teletrabajo" id="teletrabajo" class="form-control">
+                        <option value="1" {{(!empty($usuario)?($usuario->teletrabajo == 'Si' ? 'selected' : ''):'')}}>
                             Si
                         </option>
-                        <option value="2" {{(!empty($usuario)?($usuario->tipo_certificacion[1] == 'No' ? 'selected' : ''):'')}}>
+                        <option value="2" {{(!empty($usuario)?($usuario->teletrabajo == 'No' ? 'selected' : ''):'')}}>
                             No
                         </option>
                     </select>
@@ -1090,18 +1090,18 @@
                 <fieldset class="form-group col-sm-6">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Idiomas y dialectos No 1</label>
 
-                    <input type="text" class="form-control" id="intereses_ocupacionales" name="intereses_ocupacionales"
-                           value={{(!empty($usuario)?($usuario->idioma[1]):'')}} >
+                    <input type="text" class="form-control" id="idioma" name="idioma[0]"
+                           value={{(!empty($usuario)?($usuario->idioma[0]):'')}} >
                 </fieldset>
 
 
                 <fieldset class="form-group col-sm-6">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Nivel de idioma No 1 </label>
-                    <select required name="situacion_laboral" id="situacion_laboral" class="form-control">
-                        <option value="1" {{(!empty($usuario)?($usuario->idioma_nivel[1] == '1' ? 'selected' : ''):'')}} >1</option>
-                        <option value="2" {{(!empty($usuario)?($usuario->idioma_nivel[1] == '2' ? 'selected' : ''):'')}} >2</option>
-                        <option value="3" {{(!empty($usuario)?($usuario->idioma_nivel[1] == '3' ? 'selected' : ''):'')}} >3</option>
-                        <option value="4" {{(!empty($usuario)?($usuario->idioma_nivel[1] == '4' ? 'selected' : ''):'')}} >4</option>
+                    <select required name="idioma_nivel" id="idioma_nivel[0]" class="form-control">
+                        <option value="1" {{(!empty($usuario)?($usuario->idioma_nivel[0] == '1' ? 'selected' : ''):'')}} >1</option>
+                        <option value="2" {{(!empty($usuario)?($usuario->idioma_nivel[0] == '2' ? 'selected' : ''):'')}} >2</option>
+                        <option value="3" {{(!empty($usuario)?($usuario->idioma_nivel[0] == '3' ? 'selected' : ''):'')}} >3</option>
+                        <option value="4" {{(!empty($usuario)?($usuario->idioma_nivel[0] == '4' ? 'selected' : ''):'')}} >4</option>
                     </select>
                 </fieldset>
 
@@ -1109,18 +1109,18 @@
                 <fieldset class="form-group col-sm-6">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Idiomas y dialectos No 2</label>
 
-                    <input type="text" class="form-control" id="intereses_ocupacionales" name="intereses_ocupacionales"
-                           value={{(!empty($usuario)?($usuario->idioma[2]):'')}} >
+                    <input type="text" class="form-control" id="idioma" name="idioma[1]"
+                           value={{(!empty($usuario)?($usuario->idioma[1]):'')}} >
                 </fieldset>
 
 
                 <fieldset class="form-group col-sm-6">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Nivel de idioma No 2 </label>
-                    <select required name="situacion_laboral" id="situacion_laboral" class="form-control">
-                        <option value="1" {{(!empty($usuario)?($usuario->idioma_nivel[2] == '1' ? 'selected' : ''):'')}} >1</option>
-                        <option value="2" {{(!empty($usuario)?($usuario->idioma_nivel[2] == '2' ? 'selected' : ''):'')}} >2</option>
-                        <option value="3" {{(!empty($usuario)?($usuario->idioma_nivel[2] == '3' ? 'selected' : ''):'')}} >3</option>
-                        <option value="4" {{(!empty($usuario)?($usuario->idioma_nivel[2] == '4' ? 'selected' : ''):'')}} >4</option>
+                    <select required name="idioma_nivel" id="idioma_nivel[1]" class="form-control">
+                        <option value="1" {{(!empty($usuario)?($usuario->idioma_nivel[1] == '1' ? 'selected' : ''):'')}} >1</option>
+                        <option value="2" {{(!empty($usuario)?($usuario->idioma_nivel[1] == '2' ? 'selected' : ''):'')}} >2</option>
+                        <option value="3" {{(!empty($usuario)?($usuario->idioma_nivel[1] == '3' ? 'selected' : ''):'')}} >3</option>
+                        <option value="4" {{(!empty($usuario)?($usuario->idioma_nivel[1] == '4' ? 'selected' : ''):'')}} >4</option>
                     </select>
                 </fieldset>
 
@@ -1163,6 +1163,7 @@
                     <select  name="bicicleta_todoterreno" id="bicicleta_todoterreno" class="form-control"><option value="1" {{(!empty($usuario)?($usuario->bicicleta_todoterreno == 'Si' ? 'selected' : ''):'')}} >1</option>
                         <option value="2" {{(!empty($usuario)?($usuario->bicicleta_todoterreno == 'No' ? 'selected' : ''):'')}} >2</option>
                     </select>
+                    </select>
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
@@ -1203,7 +1204,7 @@
 
 
                 <fieldset class="form-group col-sm-6">
-                    <input required type="radio" class="form-control col-sm-2" id="acepto_terminos" name="opcional_antecedente" value={{(!empty($usuario)?($usuario->acepto_terminos):'')}} >
+                    <input required type="radio" class="form-control col-sm-2" id="acepto_terminos" name="acepto_terminos" value={{(!empty($usuario)?($usuario->acepto_terminos):'')}} >
                     <label style="padding-top: 15px;" class="freebirdFormviewerViewItemsItemItemTitle col-sm-10" for="formGroupExampleInput">Acepto términos y condiciones<span
                                 style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span </label>
 
