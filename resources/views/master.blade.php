@@ -41,7 +41,9 @@
       <script src="public/bower_components/alertify/alertify.min.js"></script>
       <script src="public/bower_components/highcharts/highcharts.js"></script>
       <script src="public/bower_components/bootstrap-select/dist/js/bootstrap-select.js"></script>
+          <script src="public/bower_components/bootstrap-select/dist/js/bootstrap-select.js"></script>
       <!-- endbower -->
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 
       @show
 
