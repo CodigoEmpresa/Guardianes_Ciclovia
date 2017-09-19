@@ -9,7 +9,7 @@ module.exports = function(grunt) {
     // Point to the files that should be updated when 
     // you run `grunt bower-install` 
             src: [
-            'resources/views/master.blade.php'   // .html support...
+            './resources/views/master.blade.php'   // .html support...
             ]
         }
         },

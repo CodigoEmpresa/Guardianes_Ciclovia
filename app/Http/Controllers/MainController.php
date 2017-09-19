@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Ciudad;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Pais;
+use Idrd\Usuarios\Repo\Departamento;
+use Idrd\Usuarios\Repo\Localidad;
 use Idrd\Usuarios\Repo\PersonaInterface;
 use Illuminate\Http\Request;
 
@@ -29,6 +33,7 @@ class MainController extends Controller
 
     public function index(Request $request)
     {
+       /*
         $fake_permissions = ['5144', '1'];
         //$fake_permissions = null;
 
@@ -57,7 +62,15 @@ class MainController extends Controller
         if ($_SESSION['Usuario'] == '')
             return redirect()->away('http://www.idrd.gov.co/SIM/Presentacion/');
 
-        return redirect('/welcome');
+        return redirect('/welcome');*/
+
+        $pais  = Pais::get();
+        $ciudad = Ciudad::get();
+        $departamento = Departamento::get();
+        $localidad = Localidad::get();
+
+        return view('form',['paises' => $pais,'ciudades' =>$ciudad,'departamentos'=> $departamento , 'localidades' => $localidad]);
+
     }
 
     public function logout()

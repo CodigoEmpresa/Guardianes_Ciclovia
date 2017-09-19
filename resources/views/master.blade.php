@@ -4,6 +4,7 @@
 
 <html lang="es">
   <head>
+
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="description" content="">
@@ -14,32 +15,32 @@
       <link rel="stylesheet" href="../../../Plantilla_Base/Presentacion/Css/bootstrap.min.css" />
       @section('style')
       <!-- bower:css -->
-      <link rel="stylesheet" href="../../bower_components/datatables.net-buttons-dt/css/buttons.dataTables.css" />
-      <link rel="stylesheet" href="../../bower_components/datatables.net-dt/css/jquery.dataTables.css" />
-      <link rel="stylesheet" href="../../bower_components/datetimepicker/jquery.datetimepicker.css" />
-      <link rel="stylesheet" href="../../bower_components/bootstrap-select/dist/css/bootstrap-select.css" />
-      <link rel="stylesheet" href="../../bower_components/components-font-awesome/css/font-awesome.css" />
+      <link rel="stylesheet" href="public/bower_components/datatables.net-buttons-dt/css/buttons.dataTables.css" />
+      <link rel="stylesheet" href="public/bower_components/datatables.net-dt/css/jquery.dataTables.css" />
+      <link rel="stylesheet" href="public/bower_components/datetimepicker/jquery.datetimepicker.css" />
+      <link rel="stylesheet" href="public/bower_components/bootstrap-select/dist/css/bootstrap-select.css" />
+      <link rel="stylesheet" href="public/bower_components/components-font-awesome/css/font-awesome.css" />
       <!-- endbower -->
       @show
 
       @section('script')
       <!-- bower:js -->
-      <script src="../../bower_components/jquery/dist/jquery.js"></script>
-      <script src="../../bower_components/datatables.net/js/jquery.dataTables.js"></script>
-      <script src="../../bower_components/datatables.net-buttons/js/dataTables.buttons.js"></script>
-      <script src="../../bower_components/datatables.net-buttons/js/buttons.colVis.js"></script>
-      <script src="../../bower_components/datatables.net-buttons/js/buttons.flash.js"></script>
-      <script src="../../bower_components/datatables.net-buttons/js/buttons.html5.js"></script>
-      <script src="../../bower_components/datatables.net-buttons/js/buttons.print.js"></script>
-      <script src="../../bower_components/bootstrap/dist/js/bootstrap.js"></script>
-      <script src="../../bower_components/jquery-mousewheel/jquery.mousewheel.js"></script>
-      <script src="../../bower_components/php-date-formatter/js/php-date-formatter.js"></script>
-      <script src="../../bower_components/datetimepicker/build/jquery.datetimepicker.full.min.js"></script>
-      <script src="../../bower_components/accounting/accounting.js"></script>
-      <script src="../../bower_components/moment/moment.js"></script>
-      <script src="../../bower_components/alertify/alertify.min.js"></script>
-      <script src="../../bower_components/highcharts/highcharts.js"></script>
-      <script src="../../bower_components/bootstrap-select/dist/js/bootstrap-select.js"></script>
+      <script src="public/bower_components/jquery/dist/jquery.js"></script>
+      <script src="public/bower_components/datatables.net/js/jquery.dataTables.js"></script>
+      <script src="public/bower_components/datatables.net-buttons/js/dataTables.buttons.js"></script>
+      <script src="public/bower_components/datatables.net-buttons/js/buttons.colVis.js"></script>
+      <script src="public/bower_components/datatables.net-buttons/js/buttons.flash.js"></script>
+      <script src="public/bower_components/datatables.net-buttons/js/buttons.html5.js"></script>
+      <script src="public/bower_components/datatables.net-buttons/js/buttons.print.js"></script>
+      <script src="public/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+      <script src="public/bower_components/jquery-mousewheel/jquery.mousewheel.js"></script>
+      <script src="public/bower_components/php-date-formatter/js/php-date-formatter.js"></script>
+      <script src="public/bower_components/datetimepicker/build/jquery.datetimepicker.full.min.js"></script>
+      <script src="public/bower_components/accounting/accounting.js"></script>
+      <script src="public/bower_components/moment/moment.js"></script>
+      <script src="public/bower_components/alertify/alertify.min.js"></script>
+      <script src="public/bower_components/highcharts/highcharts.js"></script>
+      <script src="public/bower_components/bootstrap-select/dist/js/bootstrap-select.js"></script>
       <!-- endbower -->
 
       @show
