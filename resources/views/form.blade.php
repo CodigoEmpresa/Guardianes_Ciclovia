@@ -131,7 +131,7 @@
 
         $(function() {
 
-            $('.date').datetimepicker({ format: 'Y-m-d'});
+            $('.date').datetimepicker({ format: 'Y-mm-d'});
             $('#id_pais').empty();
             $('#id_pais').append($('<option>').text("Seleccione"));
 
