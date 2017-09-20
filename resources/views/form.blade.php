@@ -874,8 +874,7 @@
                 <fieldset class="form-group col-sm-6">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Mencione
                         brevemente conocimientos o habilidades que tiene.</label>
-                    <textarea class="form-control" id="conocimientos_habilidades" name="conocimientos_habilidades">
-                        {{(!empty($usuario)?($usuario->conocimientos_habilidades):'')}} </textarea>
+                    <textarea class="form-control" id="conocimientos_habilidades" name="conocimientos_habilidades">{{(!empty($usuario)?($usuario->conocimientos_habilidades):'')}}</textarea>
                 </fieldset>
 
             </div>
