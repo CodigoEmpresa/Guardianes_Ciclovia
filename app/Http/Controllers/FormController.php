@@ -14,7 +14,9 @@ use Illuminate\Http\Request;
 class FormController extends Controller
 {
 
+ public  function insertar(Request $request){
 
+ }
 
 
 }
