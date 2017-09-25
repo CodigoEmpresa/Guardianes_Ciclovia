@@ -68,8 +68,9 @@ class MainController extends Controller
         $ciudad = Ciudad::get();
         $departamento = Departamento::get();
         $localidad = Localidad::get();
+        $error = session('error');
 
-        return view('form',['paises' => $pais,'ciudades' =>$ciudad,'departamentos'=> $departamento , 'localidades' => $localidad]);
+        return view('form', ['paises' => $pais,'ciudades' =>$ciudad,'departamentos'=> $departamento , 'localidades' => $localidad, 'error' => $error]);
 
     }
 
