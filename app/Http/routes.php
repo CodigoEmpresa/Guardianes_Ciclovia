@@ -18,13 +18,15 @@ Route::post('/personas/service/procesar/', '\Idrd\Usuarios\Controllers\PersonaCo
 
 
 
-Route::any('insertar',['as' => 'insertar','uses' => 'FormController@insertar']);
 
-Route::any('/logout', 'MainController@logout');
+
+
 
 
 //rutas con filtro de autenticación
 Route::group(['middleware' => ['web']], function () {
+    Route::any('/logout', 'MainController@logout');
+    Route::any('insertar',['as' => 'insertar','uses' => 'FormController@insertar']);
 	Route::get('/welcome', 'MainController@welcome');
     Route::get('/',['as' => '/','uses' => 'MainController@index']);
 });

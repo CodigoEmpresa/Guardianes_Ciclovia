@@ -46,6 +46,8 @@
           <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 
       @show
+      <script src="{{asset('public/Js/main.js?n=1')}}"></script>
+
 
       <title>Nombre Módulo</title>
   </head>
@@ -66,30 +68,12 @@
           <div class="navbar-collapse collapse" id="navbar-main">
             <ul class="nav navbar-nav">
               <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Opción 1 <span class="caret"></span></a>
-                <ul class="dropdown-menu" aria-labelledby="themes">
-                  <li><a href="#">Default</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Sub-Item 1</a></li>
-                  <li><a href="#">Sub-Item 2</a></li>
-                  <li><a href="#">Sub-Item 3</a></li>
-                  <li><a href="#">Sub-Item 4</a></li>
-                </ul>
+                <a class="dropdown-toggle"  href="{{route('/')}}" >Inicio <span class="caret"></span></a>
               </li>
               <li>
-                <a href="#">Opción 2</a>
+                <a href="#">Login</a>
               </li>
-              <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">Opción 3 <span class="caret"></span></a>
-                <ul class="dropdown-menu" aria-labelledby="download">
-                  <li><a href="#">Default</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Sub-Item 1</a></li>
-                  <li><a href="#">Sub-Item 2</a></li>
-                  <li><a href="#">Sub-Item 3</a></li>
-                  <li><a href="#">Sub-Item 4</a></li>
-                </ul>
-              </li>
+
             </ul>
 
             <form class="navbar-form navbar-left" role="search">

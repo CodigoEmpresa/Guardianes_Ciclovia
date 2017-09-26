@@ -22,7 +22,8 @@ class FormController extends Controller
         $actual = User::where('cedula', $request->cedula)->first();
         if ($actual) {
             $request->flush();
-            return redirect('/')->with(['error'=>"El ducumento ya se encuentra registrado"]);
+            return redirect('/')->with(['error'=>"El documento ya se encuentra registrado"])
+                                    ->withInput();
         }
 
 

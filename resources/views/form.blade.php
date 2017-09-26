@@ -158,6 +158,11 @@
                 $.each(ciudades_filtro, function (i, obj) {
                     $('#id_ciudad').append($('<option>').text(obj.Nombre_Ciudad).attr('value', obj.Id_Ciudad));
                 });
+
+                if($.trim($('#id_ciudad').data('value')))
+                {
+                    $('#id_ciudad').val($('#id_ciudad').data('value')).trigger('change');
+                }
             });
 
             $('#id_pais_nacimiento' ).change(function(){
@@ -168,6 +173,10 @@
                 $.each(ciudades_filtro, function (i, obj) {
                     $('#id_ciudad_nacimiento').append($('<option>').text(obj.Nombre_Ciudad).attr('value', obj.Id_Ciudad));
                 });
+                if($.trim($('#id_ciudad_nacimiento').data('value')))
+                {
+                    $('#id_ciudad_nacimiento').val($('#id_ciudad_nacimiento').data('value')).trigger('change');
+                }
             });
 
             $.each(departamentos, function (i, obj) {
@@ -205,14 +214,15 @@
     <link rel="stylesheet" type="text/css" href="{{asset('public/Css/form.css?n=10')}}">
     <div class="freebirdFormviewerViewFormBanner freebirdHeaderMast"></div>
     @if(!empty($error))
-    <div class="alert alert-danger">
-        <strong>Errror!</strong> {{$error}}
-    </div>
+        <div class="alert alert-danger">
+            <strong>Errror!</strong> {{$error}}
+        </div>
     @endif
 
     <form method="POST" action="{{route('insertar')}}" id="form_gen" enctype="multipart/form-data">
         <input type="hidden" id="editar" name="editar"
                value={{(!empty($usuario)?url_segura('encapsular',$usuario->id):'')}} >
+        {{ csrf_field() }}
         <div class="panel panel-default">
             <div class="panel-heading"> {{(!empty($usuario)?'Bienvenido de nuevo usuario : '.$usuario->nombres.' '.$usuario->apellido:'Datos Básicos y de contacto')}}</div>
             <div class="panel-body">
@@ -288,7 +298,7 @@
                         Seleccione Tu pais de Residencia <span
                                 style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span>
                     </label>
-                    <select name="id_pais" id="id_pais" class="form-control">
+                    <select name="id_pais" id="id_pais" class="form-control" data-value="{{(!empty($usuario)?($usuario->id_pais):old('id_pais'))}}">
                     </select>
                 </fieldset>
 
@@ -350,7 +360,7 @@
                     </label>
                     <input required type="text" class="form-control" id="direccion" name="direccion"
                            value={{(!empty($usuario)?($usuario->direccion):'')}} >
-                 </fieldset>
+                </fieldset>
 
             </div>
         </div>
@@ -407,7 +417,7 @@
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">País de
                         nacimient<span style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span>
                     </label>
-                    <select name="id_pais_nacimiento" id="id_pais_nacimiento" class="form-control">
+                    <select name="id_pais_nacimiento" id="id_pais_nacimiento" class="form-control" data-value="{{(!empty($usuario)?($usuario->id_pais_nacimiento):old('id_pais_nacimiento'))}}">
                     </select>
                 </fieldset>
 
@@ -446,7 +456,7 @@
                     <label class="freebirdFormviewerViewItemsPagebreakDescriptionText" style="font-size:15px">
                         Por favor seleccionar SI (tiene la tarjeta militar) y No (si esta en proceso por algún motivo)
                     </label>
-                    <select name="situacion_militar" id="situacion_militar" class="form-control"  data-value="{{ $usuario ? $usuario->situacion_militar  : old('situacion_militar') }}">
+                    <select name="situacion_militar" id="situacion_militar" class="form-control"  data-value="{{ !empty($usuario )? $usuario->situacion_militar  : old('situacion_militar') }}">
                         <option value="Si" >Si</option>
                         <option value="No" >No</option>
                     </select>
@@ -463,7 +473,7 @@
                         Grupo Étnico; Personas con discapacidad; Víctimas del conflicto armado; Personas en proceso de
                         reintegración, entre otros
                     </label>
-                    <select required name="reconoce" id="reconoce" class="form-control" data-value="{{ $usuario ? $usuario->reconoce  : old('reconoce') }}">
+                    <select required name="reconoce" id="reconoce" class="form-control" data-value="{{ !empty($usuario )? $usuario->reconoce  : old('reconoce') }}">
                         <option value="">Seleccione</option>
                         <option value="Si" >
                             Si
@@ -482,7 +492,7 @@
                                 style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span>
                     </label>
 
-                    <select required name="comunidades" id="comunidades" class="form-control" data-value="{{ $usuario ? $usuario->comunidades  : old('comunidades') }}">
+                    <select required name="comunidades" id="comunidades" class="form-control" data-value="{{ !empty($usuario )? $usuario->comunidades  : old('comunidades') }}">
                         <option value="">Seleccione</option>
                         <option value="Ninguna" >
                             Ninguna
@@ -514,7 +524,7 @@
                                 style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span></label>
                     <label class="freebirdFormviewerViewItemsPagebreakDescriptionText" style="font-size:15px">
                     </label>
-                    <select required name="tipo_poblacion" id="tipo_poblacion" class="form-control" data-value="{{ $usuario ? $usuario->tipo_poblacion  : old('tipo_poblacion') }}" >
+                    <select required name="tipo_poblacion" id="tipo_poblacion" class="form-control" data-value="{{ !empty($usuario )? $usuario->tipo_poblacion  : old('tipo_poblacion') }}" >
                         option value="">Seleccione</option>
                         <option value="Ninguna" >
                             Ninguna
@@ -534,7 +544,7 @@
                                 style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span>
                     </label>
 
-                    <select required name="condicion" id="condicion" class="form-control" data-value="{{ $usuario ? $usuario->condicion  : old('condicion') }}" >
+                    <select required name="condicion" id="condicion" class="form-control" data-value="{{ !empty($usuario )? $usuario->condicion  : old('condicion') }}" >
                         <option value="">Seleccione</option>
                         <option value="Ninguna"  >
                             Ninguna
@@ -577,7 +587,7 @@
                         Condición de discapacidad <span
                                 style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span>
                     </label>
-                    <select required name="nivel_educativo" id="nivel_educativo" class="form-control"  data-value="{{ $usuario ? $usuario->nivel_educativo  : old('nivel_educativo') }}" >
+                    <select required name="nivel_educativo" id="nivel_educativo" class="form-control"  data-value="{{ !empty($usuario )? $usuario->nivel_educativo  : old('nivel_educativo') }}" >
                         <option value="Elige" >
                             Elige
                         </option>
@@ -624,7 +634,7 @@
                         Estado de escolaridad <span
                                 style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span>
                     </label>
-                    <select required name="escolaridad" id="escolaridad" class="form-control"  data-value="{{ $usuario ? $usuario->escolaridad  : old('escolaridad') }}">
+                    <select required name="escolaridad" id="escolaridad" class="form-control"  data-value="{{ !empty($usuario )? $usuario->escolaridad  : old('escolaridad') }}">
                         <option value="Elige">
                             Elige
                         </option>
@@ -683,7 +693,7 @@
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Tiene practica
                         laboral <span
                                 style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span</label>
-                    <select name="practica_laboral_select" id="practica_laboral" class="form-control"  data-value="{{ $usuario ? $usuario->practica_laboral  : old('practica_laboral') }}" >
+                    <select name="practica_laboral_select" id="practica_laboral" class="form-control"  data-value="{{ !empty($usuario )? $usuario->practica_laboral_select  : old('practica_laboral_select') }}" >
                         <option value="Si" > Si </option>
                         <option value="No" > No </option>
                     </select>
@@ -701,7 +711,7 @@
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Tipo de
                         experiencia laboral 1<span
                                 style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span></label>
-                    <select name="practica_laboral[0]" id="practica_laboral" class="form-control"  data-value="{{ $usuario ? json_decode($usuario->practica_laboral)[0]  : old('practica_laboral') }}">
+                    <select name="practica_laboral[0]" id="practica_laboral" class="form-control"  data-value="{{ !empty($usuario )? json_decode($usuario->practica_laboral)[0]  : old('practica_laboral')[0] }}">
                         <option value="Elige"  >
                             Elige
                         </option>
@@ -722,7 +732,7 @@
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Nombre de la
                         empresa 1 </label>
                     <input type="text" class="form-control" id="nombre_empresa" name="nombre_empresa[0]"
-                           value={{(!empty($usuario)?(json_decode($usuario->nombre_empresa)[0]):old('nombre_empresa[0]'))}} >
+                           value={{(!empty($usuario)?(json_decode($usuario->nombre_empresa)[0]):old('nombre_empresa')[0])}} >
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
@@ -730,14 +740,14 @@
                     <label class="freebirdFormviewerViewItemsPagebreakDescriptionText" style="font-size:15px">Actividad
                         de la empresa</label>
                     <input type="text" class="form-control" id="sector_empresa" name="sector_empresa[0]"
-                           value={{(!empty($usuario)?(json_decode($usuario->sector_empresa)[0]):old('sector_empresa[0]'))}} >
+                           value={{(!empty($usuario)?(json_decode($usuario->sector_empresa)[0]):old('sector_empresa')[0])}} >
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Teléfono de la
                         empresa 1</label>
                     <input type="text" class="form-control" id="telefono_empresa" name="telefono_empresa[0]"
-                           value={{(!empty($usuario)?(json_decode($usuario->telefono_empresa)[0]):old('telefono_empresa[0]'))}} >
+                           value={{(!empty($usuario)?(json_decode($usuario->telefono_empresa)[0]):old('telefono_empresa')[0])}} >
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
@@ -746,30 +756,29 @@
                                         style="font-size:15px">Fecha
                     </label>
                     <input type="text" class="date form-control" id="fecha_inicio" name="fecha_inicio[0]"
-                           value={{(!empty($usuario)?(json_decode($usuario->fecha_inicio)[0]):old('fecha_inicio[0]'))}} >
+                           value={{(!empty($usuario)?(json_decode($usuario->fecha_inicio)[0]):old('fecha_inicio')[0])}} >
                 </fieldset>
 
 
                 <fieldset class="form-group col-sm-6">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Fecha de
-                        finalización 1</label><label class="freebirdFormviewerViewItemsPagebreakDescriptionText"
-                                                     style="font-size:15px">Fecha
+                        finalización 1</label><label class="freebirdFormviewerViewItemsPagebreakDescriptionText"  style="font-size:15px">
                     </label>
                     <input type="text" class="date form-control" id="fecha_inicio" name="fecha_final[0]"
-                           value={{(!empty($usuario)?(json_decode($usuario->fecha_final)[0]):old('fecha_final[0]'))}} >
+                           value={{(!empty($usuario)?(json_decode($usuario->fecha_final)[0]):old('fecha_final')[0])}} >
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Cargo 1</label>
                     <input type="text" class="form-control" id="cargo" name="cargo[0]"
-                           value={{(!empty($usuario)?(json_decode($usuario->fecha_final)[0]):old('cargo[0]'))}} >
+                           value={{(!empty($usuario)?(json_decode($usuario->fecha_final)[0]):old('cargo')[0])}} >
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Área de trabajo
                         1</label>
                     <input type="text" class="form-control" id="area_trabajo" name="area_trabajo[0]"
-                           value={{(!empty($usuario)?(json_decode($usuario->area_trabajo)[0]):old('area_trabajo[0]'))}} >
+                           value={{(!empty($usuario)?(json_decode($usuario->area_trabajo)[0]):old('area_trabajo')[0])}} >
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
@@ -777,7 +786,7 @@
                         logros
                         1</label>
                     <input type="text" class="form-control" id="funciones" name="funciones[0]"
-                           value={{(!empty($usuario)?(json_decode($usuario->funciones)[0]):old('funciones[0]'))}} >
+                           value={{(!empty($usuario)?(json_decode($usuario->funciones)[0]):old('funciones')[0])}} >
                 </fieldset>
 
 
@@ -787,7 +796,7 @@
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Tipo de
                         experiencia laboral 2<span
                                 style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span</label>
-                    <select name="practica_laboral[1]" id="practica_laboral" class="form-control"  data-value="{{ $usuario ? json_decode($usuario->practica_laboral)[1]  : old('practica_laboral[1]') }}">
+                    <select name="practica_laboral[1]" id="practica_laboral" class="form-control"  data-value="{{ !empty($usuario )? json_decode($usuario->practica_laboral)[1]  : old('practica_laboral')[1] }}">
                         <option value="Elige"  >
                             Elige
                         </option>
@@ -808,7 +817,7 @@
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Nombre de la
                         empresa 2 </label>
                     <input type="text" class="form-control" id="nombre_empresa" name="nombre_empresa[1]"
-                           value={{(!empty($usuario)?($usuario->nombre_empresa[1]):old('nombre_empresa[1]'))}} >
+                           value={{(!empty($usuario)?($usuario->nombre_empresa[1]):old('nombre_empresa')[1])}} >
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
@@ -816,14 +825,14 @@
                     <label class="freebirdFormviewerViewItemsPagebreakDescriptionText" style="font-size:15px">Actividad
                         de la empresa</label>
                     <input type="text" class="form-control" id="sector_empresa" name="sector_empresa[1]"
-                           value={{(!empty($usuario)?($usuario->sector_empresa[1]):old('sector_empresa[1]'))}} >
+                           value={{(!empty($usuario)?($usuario->sector_empresa[1]):old('sector_empresa')[1])}} >
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Teléfono de la
                         empresa 2</label>
                     <input type="text" class="form-control" id="telefono_empresa" name="telefono_empresa[1]"
-                           value={{(!empty($usuario)?($usuario->telefono_empresa[1]):old('telefono_empresa[1]'))}} >
+                           value={{(!empty($usuario)?($usuario->telefono_empresa[1]):old('telefono_empresa')[1])}} >
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
@@ -832,7 +841,7 @@
                                         style="font-size:15px">Fecha
                     </label>
                     <input type="text" class="date form-control" id="fecha_inicio" name="fecha_inicio[1]"
-                           value={{(!empty($usuario)?($usuario->fecha_inicio[1]):old('fecha_inicio[1]'))}} >
+                           value={{(!empty($usuario)?($usuario->fecha_inicio[1]):old('fecha_inicio')[1])}} >
                 </fieldset>
 
 
@@ -842,20 +851,20 @@
                                                      style="font-size:15px">Fecha
                     </label>
                     <input type="text" class="date form-control" id="fecha_inicio" name="fecha_final[1]"
-                           value={{(!empty($usuario)?($usuario->fecha_final[1]):old('fecha_final[1]'))}} >
+                           value={{(!empty($usuario)?($usuario->fecha_final[1]):old('fecha_final')[1])}} >
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Cargo 2</label>
                     <input type="text" class="form-control" id="cargo" name="cargo[1]"
-                           value={{(!empty($usuario)?($usuario->fecha_final[1]):'cargo[1]')}} >
+                           value={{(!empty($usuario)?($usuario->fecha_final[1]):old('cargo')[1])}} >
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Área de trabajo
                         2</label>
                     <input type="text" class="form-control" id="area_trabajo" name="area_trabajo[1]"
-                           value={{(!empty($usuario)?($usuario->area_trabajo[1]):old('area_trabajo[1]'))}} >
+                           value={{(!empty($usuario)?($usuario->area_trabajo[1]):old('area_trabajo')[1])}} >
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
@@ -863,7 +872,7 @@
                         logros
                         2</label>
                     <input type="text" class="form-control" id="funciones" name="funciones[1]"
-                           value={{(!empty($usuario)?($usuario->funciones[1]):'')}} >
+                           value={{(!empty($usuario)?json_decode($usuario->funciones[1]):old('funciones')[1])}} >
                 </fieldset>
 
                 <div class="titulos_seccion col-sm-12">OTROS CONOCIMIENTOS Y HABILIDADES</div>
@@ -871,7 +880,7 @@
                 <fieldset class="form-group col-sm-6">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Mencione
                         brevemente conocimientos o habilidades que tiene.</label>
-                    <textarea class="form-control" id="conocimientos_habilidades" name="conocimientos_habilidades">{{(!empty($usuario)?($usuario->conocimientos_habilidades):'')}}</textarea>
+                    <textarea class="form-control" id="conocimientos_habilidades" name="conocimientos_habilidades">{{(!empty($usuario)?($usuario->conocimientos_habilidades):old('conocimientos_habilidades'))}}</textarea>
                 </fieldset>
 
             </div>
@@ -899,23 +908,23 @@
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Tipo de
                         capacitación
                         o certificación 1</label>
-                    <select name="tipo_certificacion[0]" id="tipo_certificacion" class="form-control">
-                        <option value="1" {{(!empty($usuario)?(json_decode($usuario->tipo_certificacion)[0] == 1 ? 'selected' : ''):'')}}>
+                    <select name="tipo_certificacion[0]" id="tipo_certificacion" class="form-control"  data-value="{{!empty( $usuario) ? json_decode($usuario->tipo_certificacion)[0]  : old('tipo_certificacion')[0] }}">
+                        <option value="Elige">
                             Elige
                         </option>
-                        <option value="2" {{(!empty($usuario)?(json_decode($usuario->tipo_certificacion)[0] == 2 ? 'selected' : ''):'')}}>
+                        <option value="Curso">
                             Curso
                         </option>
-                        <option value="3" {{(!empty($usuario)?(json_decode($usuario->tipo_certificacion)[0] == 3 ? 'selected' : ''):'')}}>
+                        <option value="Taller">
                             Taller
                         </option>
-                        <option value="4" {{(!empty($usuario)?(json_decode($usuario->tipo_certificacion)[0] == 4 ? 'selected' : ''):'')}}>
+                        <option value="Diplomado">
                             Diplomado
                         </option>
-                        <option value="5" {{(!empty($usuario)?(json_decode($usuario->tipo_certificacion)[0] == 5 ? 'selected' : ''):'')}}>
+                        <option value="Seminario">
                             Seminario
                         </option>
-                        <option value="6" {{(!empty($usuario)?(json_decode($usuario->tipo_certificacion)[0] == 6 ? 'selected' : ''):'')}}>
+                        <option value="Certificación de competencias">
                             Certificación de competencias
                         </option>
                     </select>
@@ -926,16 +935,16 @@
                         programa
                         1</label>
                     <input type="text" class="form-control" id="nombre_certificacion" name="nombre_certificacion[0]"
-                           value={{(!empty($usuario)?($usuario->nombre_certificacion[0]):'')}} >
+                           value={{(!empty($usuario)?($usuario->nombre_certificacion[0]):old('nombre_certificacion')[0])}} >
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Estado 1</label>
-                    <select name="estado_certificacion[0]" id="estado_certificacion" class="form-control">
-                        <option value="1" {{(!empty($usuario)?(json_decode($usuario->estado_certificacion)[0] == 1 ? 'selected' : ''):'')}}>
+                    <select name="estado_certificacion[0]" id="estado_certificacion" class="form-control" data-value={{(!empty($usuario)?json_decode($usuario->estado_certificacion)[0]:old('estado_certificacion')[0])}} >
+                        <option value="Certificado">
                             Certificado
                         </option>
-                        <option value="2" {{(!empty($usuario)?(json_decode($usuario->estado_certificacion)[0] == 2 ? 'selected' : ''):'')}}>
+                        <option value="No certificado">
                             No certificado
                         </option>
                     </select>
@@ -946,58 +955,53 @@
                         horas
                         1</label>
                     <input type="text" class="form-control" id="duracion_certificacion" name="duracion_certificacion[0]"
-                           value={{(!empty($usuario)?($usuario->duracion_certificacion[0]):'')}} >
+                           value={{(!empty($usuario)?($usuario->duracion_certificacion[0]):old('duracion_certificacion')[0])}} >
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Nombre de la
                         Institución 1</label>
-                    <input type="text" class="form-control" id="institucion_certificacion" name="institucion_certificacion[0]"
-                           value={{(!empty($usuario)?($usuario->institucion_certificacion[0]):'')}} >
+                    <input type="text" class="form-control" id="institucion_certificacion" name="institucion_certificacion[0]" value={{(!empty($usuario)?json_decode($usuario->institucion_certificacion)[0]:old('institucion_certificacion')[0])}} >
                 </fieldset>
                 <div class="titulos_seccion col-sm-12">CAPACITACIÓN O CERTIFICACIÓN No 2</div>
 
                 <fieldset class="form-group col-sm-6">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Tipo de
-                        capacitación o
-                        certificación 1</label>
-                    <select name="tipo_certificacion[1]" id="tipo_certificacion" class="form-control">
-                        <option value="1" {{(!empty($usuario)?($usuario->tipo_certificacion[0] == 1 ? 'selected' : ''):'')}}>
+                        capacitación o certificación 1</label>
+                    <select name="tipo_certificacion[1]" id="tipo_certificacion" class="form-control" data-value={{(!empty($usuario)?json_decode($usuario->tipo_certificacion)[0]:old('tipo_certificacion')[1])}} >
+                        <option value="Elige" >
                             Elige
                         </option>
-                        <option value="2" {{(!empty($usuario)?($usuario->tipo_certificacion[0] == 2 ? 'selected' : ''):'')}}>
+                        <option value="Curso" >
                             Curso
                         </option>
-                        <option value="3" {{(!empty($usuario)?($usuario->tipo_certificacion[0] == 3 ? 'selected' : ''):'')}}>
+                        <option value="Taller" >
                             Taller
                         </option>
-                        <option value="4" {{(!empty($usuario)?($usuario->tipo_certificacion[0] == 4 ? 'selected' : ''):'')}}>
+                        <option value="Diplomado" >
                             Diplomado
                         </option>
-                        <option value="5" {{(!empty($usuario)?($usuario->tipo_certificacion[0] == 5 ? 'selected' : ''):'')}}>
+                        <option value="Seminario" >
                             Seminario
                         </option>
-                        <option value="6" {{(!empty($usuario)?($usuario->tipo_certificacion[0] == 6 ? 'selected' : ''):'')}}>
+                        <option value="Certificación de competencias" >
                             Certificación de competencias
                         </option>
                     </select>
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
-                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Nombre del
-                        programa
-                        1</label>
-                    <input type="text" class="form-control" id="nombre_certificacion" name="nombre_certificacion[1]"
-                           value={{(!empty($usuario)?($usuario->nombre_certificacion[1]):'')}} >
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Nombre del programa 1</label>
+                    <input type="text" class="form-control" id="nombre_certificacion" name="nombre_certificacion[1]" value={{(!empty($usuario)?json_decode($usuario->nombre_certificacion)[1]:old('nombre_certificacion')[1])}} >
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Estado 1</label>
-                    <select name="estado_certificacion[1]" id="estado_certificacion" class="form-control">
-                        <option value="1" {{(!empty($usuario)?($usuario->estado_certificacion[1] == 1 ? 'selected' : ''):'')}}>
+                    <select name="estado_certificacion[1]" id="estado_certificacion" class="form-control" data-value={{(!empty($usuario)?json_decode($usuario->estado_certificacion)[1]:old('estado_certificacion')[1])}} >
+                        <option value="Certificado" >
                             Certificado
                         </option>
-                        <option value="2" {{(!empty($usuario)?($usuario->estado_certificacion[1] == 2 ? 'selected' : ''):'')}}>
+                        <option value="No certificado" >
                             No certificado
                         </option>
                     </select>
@@ -1007,16 +1011,14 @@
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Duración en
                         horas
                         1</label>
-                    <input type="text" class="form-control" id="duracion_certificacion" name="duracion_certificacion[1]"
-                           value={{(!empty($usuario)?($usuario->duracion_certificacion[1]):'')}} >
+                    <input type="text" class="form-control" id="duracion_certificacion" name="duracion_certificacion[1]" value={{(!empty($usuario)?json_decode($usuario->duracion_certificacion)[1]:old('duracion_certificacion')[1])}} >
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Nombre de la
                         Institución
                         1</label>
-                    <input type="text" class="form-control" id="institucion_certificacion" name="institucion_certificacion[1]"
-                           value={{(!empty($usuario)?($usuario->institucion_certificacion[1]):'')}} >
+                    <input type="text" class="form-control" id="institucion_certificacion" name="institucion_certificacion[1]" value={{(!empty($usuario)?json_decode($usuario->institucion_certificacion)[1]:old('institucion_certificacion')[1])}} >
                 </fieldset>
 
                 <div class="titulos_seccion col-sm-12">OTROS CONOCIMIENTOS Y HABILIDADES</div>
@@ -1025,33 +1027,26 @@
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Mencione
                         brevemente
                         conocimientos o habilidades que tiene.</label>
-                    <textarea class="form-control" id="conocimientos_habilidades_certificacion"
-                              name="conocimientos_habilidades_certificacion">
-                        {{(!empty($usuario)?($usuario->conocimientos_habilidades_certificacion):'')}} </textarea>
+                    <textarea class="form-control" id="conocimientos_habilidades_certificacion" name="conocimientos_habilidades_certificacion">{{(!empty($usuario)?($usuario->conocimientos_habilidades_certificacion):old('conocimientos_habilidades_certificacion'))}}</textarea>
                 </fieldset>
 
                 <div class="titulos_seccion col-sm-12">PERFIL LABORAL</div>
 
                 <fieldset class="form-group col-sm-12">
-                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Mencione su
-                        perfil
-                        laboral</label>
-                    <textarea class="form-control" id="perfil_laboral" name="perfil_laboral">
-                        {{(!empty($usuario)?($usuario->perfil_laboral):'')}} </textarea>
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Mencione su perfil laboral</label>
+                    <textarea class="form-control" id="perfil_laboral" name="perfil_laboral">{{(!empty($usuario)?($usuario->perfil_laboral):old('perfil_laboral'))}}</textarea>
                 </fieldset>
 
                 <fieldset class="form-group col-sm-12">
-                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Aspiración
-                        Salarial</label>
-                    <input type="number" class="form-control" id="aspiracion_salarial" name="aspiracion_salarial"
-                           value={{(!empty($usuario)?($usuario->aspiracion_salarial):'')}} >
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Aspiración Salarial</label>
+                    <input type="number" class="form-control" id="aspiracion_salarial" name="aspiracion_salarial" value={{(!empty($usuario)?($usuario->aspiracion_salarial):old('aspiracion_salarial'))}} >
                 </fieldset>
 
                 <fieldset class="form-group col-sm-12">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Posibilidad de
                         viajar
                         <span style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span></label>
-                    <select required name="posibilidad_viajar" id="posibilidad_viajar" class="form-control" data-value="{{ $usuario ? $usuario->posibilidad_viajar  : old('posibilidad_viajar') }}">
+                    <select required name="posibilidad_viajar" id="posibilidad_viajar" class="form-control" data-value="{{!empty($usuario )?($usuario->posibilidad_viajar):old('posibilidad_viajar') }}">
                         <option value="Si" >
                             Si
                         </option>
@@ -1064,7 +1059,7 @@
                 <fieldset class="form-group col-sm-12">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Interés en ofertas de teletrabajo
                         <span style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span></label>
-                    <select required name="teletrabajo" id="teletrabajo" class="form-control" data-value="{{ $usuario ? $usuario->teletrabajo  : old('teletrabajo') }}">
+                    <select required name="teletrabajo" id="teletrabajo" class="form-control" data-value="{{ !empty($usuario )? $usuario->teletrabajo  : old('teletrabajo') }}">
                         <option value="Si" >
                             Si
                         </option>
@@ -1077,7 +1072,7 @@
                 <fieldset class="form-group col-sm-12">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Situación laboral actual
                         <span style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span></label>
-                    <select required name="situacion_laboral" id="situacion_laboral" class="form-control" data-value="{{ $usuario ? $usuario->situacion_laboral  : old('situacion_laboral') }}">
+                    <select required name="situacion_laboral" id="situacion_laboral" class="form-control" data-value="{{ !empty($usuario )? $usuario->situacion_laboral  : old('situacion_laboral') }}">
                         <option value="Desempleado">Desempleado</option>
                         <option value="Primer empleo">Primer empleo</option>
                         <option value="Empleado" >Empleado</option>
@@ -1087,8 +1082,8 @@
 
                 <fieldset class="form-group col-sm-12">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Propiedad de medio de transporte
-                       </label>
-                    <select  name="propietario_transporte" id="propietario_transporte" class="form-control" data-value="{{ $usuario ? $usuario->propietario_transporte  : old('propietario_transporte') }}">
+                    </label>
+                    <select  name="propietario_transporte" id="propietario_transporte" class="form-control" data-value="{{ !empty($usuario )? $usuario->propietario_transporte  : old('propietario_transporte') }}">
                         <option value="Si" >
                             Si
                         </option>
@@ -1100,8 +1095,8 @@
 
                 <fieldset class="form-group col-sm-12">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Licencia de conducción
-                        </label>
-                    <select  name="licencia_conducion" id="licencia_conducion" class="form-control" data-value="{{ $usuario ? $usuario->licencia_conducion  : old('licencia_conducion') }}" >
+                    </label>
+                    <select  name="licencia_conducion" id="licencia_conducion" class="form-control" data-value="{{ !empty($usuario )? $usuario->licencia_conducion  : old('licencia_conducion') }}" >
                         <option value="No" >
                             No
                         </option>
@@ -1144,13 +1139,13 @@
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Idiomas y dialectos No 1</label>
 
                     <input type="text" class="form-control" id="idioma" name="idioma[0]"
-                           value={{(!empty($usuario)?(json_decode($usuario->idioma)[0]):old('idioma[0]'))}} >
+                           value={{(!empty($usuario)?(json_decode($usuario->idioma)[0]):old('idioma')[0])}} >
                 </fieldset>
 
 
                 <fieldset class="form-group col-sm-6">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Nivel de idioma No 1 </label>
-                    <select required name="idioma_nivel[0]" id="idioma_nivel" class="form-control" data-value="{{ $usuario ? json_decode($usuario->idioma_nivel)[0]  : old('idioma_nivel[0]') }}" >
+                    <select required name="idioma_nivel[0]" id="idioma_nivel" class="form-control" data-value="{{ !empty($usuario )? json_decode($usuario->idioma_nivel)[0]  : old('idioma_nivel')[0] }}" >
                         <option >1</option>
                         <option >2</option>
                         <option >3</option>
@@ -1163,13 +1158,13 @@
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Idiomas y dialectos No 2</label>
 
                     <input type="text" class="form-control" id="idioma" name="idioma[1]"
-                           value={{(!empty($usuario)?($usuario->idioma[1]):old('idioma[1]'))}} >
+                           value={{(!empty($usuario)?($usuario->idioma[1]):old('idioma')[1])}} >
                 </fieldset>
 
 
                 <fieldset class="form-group col-sm-6">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Nivel de idioma No 2 </label>
-                    <select required name="idioma_nivel[1]" id="idioma_nivel" class="form-control" data-value="{{ $usuario ? json_decode($usuario->idioma_nivel)[1]  : old('idioma_nivel[1]') }}">
+                    <select required name="idioma_nivel[1]" id="idioma_nivel" class="form-control" data-value="{{ !empty($usuario )? json_decode($usuario->idioma_nivel)[1]  : old('idioma_nivel')[1] }}">
                         <option value="1" >1</option>
                         <option value="2" >2</option>
                         <option value="3" >3</option>
@@ -1181,13 +1176,13 @@
         </div>
 
         <div class="panel panel-default">
-            <div class="panel-heading">Datos personales</div>
+            <div class="panel-heading">CICLOVÍA</div>
             <div class="panel-body">
                 <div class="col-sm-12">Esta sección, corresponde a preguntas enfocadas directamente con el rol a desempeñar como Aspirante a Guardián de Ciclovía, tómese el tiempo para leer, comprender y responder de acuerdo a sus intereses personales.
                 </div>
                 <fieldset class="form-group col-sm-6">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Dispone de tiempo los días domingos y festivos entre las 6:00 am y las 4:00 pm</label>
-                    <select  name="dispone_tiempo" id="dispone_tiempo" class="form-control" data-value="{{ $usuario ? $usuario->dispone_tiempo : old('dispone_tiempo') }}">
+                    <select  name="dispone_tiempo" id="dispone_tiempo" class="form-control" data-value="{{ !empty($usuario )? $usuario->dispone_tiempo : old('dispone_tiempo') }}">
                         <option value="Si" >Si</option>
                         <option value="No" >No</option>
                     </select>
@@ -1195,7 +1190,7 @@
 
                 <fieldset class="form-group col-sm-6">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Esta dispuesto a cumplir con una presentación personal acorde a las directrices del IDRD</label>
-                    <select  name="presentacion_personal" id="presentacion_personal" class="form-control" data-value="{{ $usuario ? $usuario->presentacion_personal : old('presentacion_personal') }}">
+                    <select  name="presentacion_personal" id="presentacion_personal" class="form-control" data-value="{{ !empty($usuario )? $usuario->presentacion_personal : old('presentacion_personal') }}">
                         <option value="Si" >Si</option>
                         <option value="No" >No</option>
                     </select>
@@ -1204,7 +1199,7 @@
                 <fieldset class="form-group col-sm-6">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Comprende y acepta que inasistir reiteradamente a jornadas durante la etapa de preparación y acondicionamiento (justificadas e injustificadas), generan la exclusión del proceso
                     </label>
-                    <select  name="comprende_acepta" id="comprende_acepta" class="form-control" data-value="{{ $usuario ? $usuario->comprende_acepta : old('comprende_acepta') }}" >
+                    <select  name="comprende_acepta" id="comprende_acepta" class="form-control" data-value="{{ !empty($usuario )? $usuario->comprende_acepta : old('comprende_acepta') }}" >
                         <option value="Si"  >Si</option>
                         <option value="No"  >No</option>
                     </select>
@@ -1213,7 +1208,7 @@
                 <fieldset class="form-group col-sm-6">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Cuenta con bicicleta todo terreno</label>
                     <label class="freebirdFormviewerViewItemsPagebreakDescriptionText" style="font-size:15px">No se permite bicicletas de ruta, urbanas y/o playeras con cambios adaptados. Por otro lado la bicicleta todo terreno permitida no debe tener parrilla.</label>
-                    <select  name="bicicleta_todoterreno" id="bicicleta_todoterreno" class="form-control" data-value="{{ $usuario ? $usuario->bicicleta_todoterreno : old('bicicleta_todoterreno') }}">
+                    <select  name="bicicleta_todoterreno" id="bicicleta_todoterreno" class="form-control" data-value="{{ !empty($usuario )? $usuario->bicicleta_todoterreno : old('bicicleta_todoterreno') }}">
                         <option value="Si" >si</option>
                         <option value="No" >No</option>
                     </select>
@@ -1223,20 +1218,20 @@
                 <fieldset class="form-group col-sm-6">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Se encuentra actualmente afiliado a un prestador del servicio del sistema de seguridad social en salud (Cotizante, beneficiario o dependiente). <span style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span></label>
 
-                    <select required name="afiliado" id="afiliado" class="form-control" data-value="{{ $usuario ? $usuario->afiliado : old('afiliado') }}">
+                    <select required name="afiliado" id="afiliado" class="form-control" data-value="{{ !empty($usuario )? $usuario->afiliado : old('afiliado') }}">
                         <option value="Si"  >Si</option>
                         <option value="No"  >No</option>
                         <option value="Otro"  >Otro</option>
                     </select>
                     <label>Si selecciono otro:</label>
                     <input  type="text" class="form-control" id="seguridad_social_otro" name="seguridad_social_otro"
-                           value={{(!empty($usuario)?($usuario->seguridad_social_otro):'')}} >
+                            value={{(!empty($usuario)?($usuario->seguridad_social_otro):'')}} >
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Tiene algún antecedente de salud, física y/o psicológica que le impida realizar alguna actividad <span style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span></label>
 
-                    <select required name="antecedente_salud" id="antecedente_salud" class="form-control"  data-value="{{ $usuario ? $usuario->antecedente_salud : old('antecedente_salud') }}" >
+                    <select required name="antecedente_salud" id="antecedente_salud" class="form-control"  data-value="{{ !empty($usuario )? $usuario->antecedente_salud : old('antecedente_salud') }}" >
                         <option value="Si" >Si</option>
                         <option value="No" >No</option>
 
@@ -1247,7 +1242,7 @@
                 <fieldset class="form-group col-sm-6">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Si su respuesta es afirmativa, indique el antecedente</label>
 
-                    <input required type="text" class="form-control" id="opcional_antecedente" name="opcional_antecedente" value={{(!empty($usuario)?($usuario->opcional_antecedente):'')}} >
+                    <input required type="text" class="form-control" id="opcional_antecedente" name="opcional_antecedente" value={{(!empty($usuario)?($usuario->opcional_antecedente):old('opcional_antecedente'))}} >
                 </fieldset>
 
                 <div class="titulos_seccion col-sm-12">AVISO DE AUTORIZACIÓN PARA TRATAMIENTO DE DATOS PERSONALES</div>
@@ -1258,7 +1253,7 @@
 
 
                 <fieldset class="form-group col-sm-6">
-                    <input required type="radio" class="form-control col-sm-2" id="acepto_terminos" name="acepto_terminos" value={{(!empty($usuario)?($usuario->acepto_terminos):'')}} >
+                    <input required type="radio" class="form-control col-sm-2" id="acepto_terminos" name="acepto_terminos" value={{(!empty($usuario)?($usuario->acepto_terminos):old('acepto_terminos'))}} >
                     <label style="padding-top: 15px;" class="freebirdFormviewerViewItemsItemItemTitle col-sm-10" for="formGroupExampleInput">Acepto términos y condiciones<span
                                 style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span </label>
 
@@ -1267,16 +1262,16 @@
 
 
                 <fieldset class="form-group col-sm-12">
-                <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">FIRMA <span
-                            style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span</label>
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">FIRMA <span
+                                style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span</label>
 
-                <input required type="text" class="form-control col-sm-4" id="firma" name="firma" value={{(!empty($usuario)?($usuario->firma):'')}} >
+                    <input required type="text" class="form-control col-sm-4" id="firma" name="firma" value={{(!empty($usuario)?($usuario->firma):old('firma'))}} >
                 </fieldset>
 
 
-                    <input type="submit" class="form-control btn btn-success" value="Registrarse" >
+                <input type="submit" class="form-control btn btn-success" value="Registrarse" >
 
-        </div>
+            </div>
         </div>
 
 
