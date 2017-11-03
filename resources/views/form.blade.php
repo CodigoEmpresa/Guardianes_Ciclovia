@@ -196,7 +196,8 @@
     $today = date("Y-m-d H:i:s");
     $date = "2017-09-31 23:59:00";
 
-    if ( $today > $date && empty($usuario) ) {
+    //if ( $today > $date && empty($usuario) ) {
+    if ( false ) {
 
 
     ?>
@@ -1242,7 +1243,7 @@
                 <fieldset class="form-group col-sm-6">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Si su respuesta es afirmativa, indique el antecedente</label>
 
-                    <input required type="text" class="form-control" id="opcional_antecedente" name="opcional_antecedente" value={{(!empty($usuario)?($usuario->opcional_antecedente):old('opcional_antecedente'))}} >
+                    <input  type="text" class="form-control" id="opcional_antecedente" name="opcional_antecedente" value={{(!empty($usuario)?($usuario->opcional_antecedente):old('opcional_antecedente'))}} >
                 </fieldset>
 
                 <div class="titulos_seccion col-sm-12">AVISO DE AUTORIZACIÓN PARA TRATAMIENTO DE DATOS PERSONALES</div>

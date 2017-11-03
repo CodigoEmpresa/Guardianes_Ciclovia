@@ -17,10 +17,14 @@ Route::get('/personas/service/ciudad/{id_pais}', '\Idrd\Usuarios\Controllers\Loc
 Route::post('/personas/service/procesar/', '\Idrd\Usuarios\Controllers\PersonaController@procesar');
 
 
+Route::get('login', function () {
+    return view('login');
+});
+
+Route::post('listar_datos', 'FormController@listar_datos');
 
 
-
-
+Route::any('logear','FormController@logear');
 
 
 //rutas con filtro de autenticación
@@ -29,5 +33,12 @@ Route::group(['middleware' => ['web']], function () {
     Route::any('insertar',['as' => 'insertar','uses' => 'FormController@insertar']);
 	Route::get('/welcome', 'MainController@welcome');
     Route::get('/',['as' => '/','uses' => 'MainController@index']);
+
+    Route::get('cerrar', function () {
+		session_start();
+		session_destroy();
+	    return view('welcome');
+	});
+
 });
 /*
