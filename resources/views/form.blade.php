@@ -353,6 +353,18 @@
                 </fieldset>
 
                 <fieldset class="form-group col-sm-6">
+                    <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">
+                        Telefono de contacto <span
+                                style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span>
+                    </label><br>
+                    <label class="freebirdFormviewerViewItemsPagebreakDescriptionText" style="font-size:15px">
+                        Por favor escribir el telefono de contacto
+                    </label>
+                    <input required type="text" class="form-control" id="telefono" name="telefono" id="telefono"
+                           value={{(!empty($usuario)?($usuario->telefono):'')}} >
+                </fieldset>
+
+                <fieldset class="form-group col-sm-6">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Direccion <span
                                 style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span></label>
                     <label class="freebirdFormviewerViewItemsPagebreakDescriptionText" style="font-size:15px">

@@ -43,6 +43,7 @@ class FormController extends Controller
             $usuario->id_localidad = $request->id_localidad;
             $usuario->barrio = $request->barrio;
             $usuario->direccion = $request->direccion;
+            $usuario->telefono = $request->telefono;
             $usuario->estado_civil = $request->estado_civil;
             $usuario->sexo = $request->sexo;
             $usuario->id_pais_nacimiento = $request->id_pais_nacimiento;
@@ -141,92 +142,92 @@ class FormController extends Controller
 
     $tabla='<table id="lista">
             <thead>
-               <tr>
-               <thead>
-                  <th>Marca temporal</th>
-                  <th>Tipo de documento </th>
-                  <th>Número de documento</th>
-                  <th>Apellidos y nombres </th>
-                  <th>Correo electrónico </th>
-                  <th>Fecha de nacimiento </th>
-                  <th>País de residencia </th>
-                  <th>Departamento de residencia </th>
-                  <th>Ciudad/municipio de residencia </th>
-                  <th>Si eligió otra ciudad o municipio, por favor escribir cual </th>
-                  <th>Localidad de residencia </th>
-                  <th>Barrio</th>
-                  <th>Dirección de residencia </th>
-                  <th>Teléfono de contacto </th>
-                  <th>Estado civil </th>
-                  <th>Sexo</th>
-                  <th>País de nacimiento </th>
-                  <th>Departamento de nacimiento </th>
-                  <th>Ciudad/municipio de nacimiento </th>
-                  <th>Si eligió otra ciudad o municipio, por favor escribir cual </th>
-                  <th>Situación militar</th>
-                  <th>Se reconoce como parte de una población focalizada</th>
-                  <th>Grupo étnico</th>
-                  <th>Tipo de población focalizada </th>
-                  <th>Condición de discapacidad </th>
-                  <th>Grado más alto de escolaridad</th>
-                  <th>Estado de escolaridad </th>
-                  <th>Fecha de culminación de estudio más alto </th>
-                  <th>Titulo obtenido </th>
-                  <th>Institución</th>
-                  <th>Número de tarjeta profesional </th>
-                  <th>Tiene practica laboral </th>
-                  <th>Tipo de experiencia laboral 1</th>
-                  <th>Nombre de la empresa 1</th>
-                  <th>Sector 1</th>
-                  <th>Teléfono de la empresa 1 </th>
-                  <th>Fecha de inicio 1 </th>
-                  <th>Fecha de finalización 1</th>
-                  <th>Cargo 1</th>
-                  <th>Área de trabajo 1</th>
-                  <th>Funciones y logros 1</th>
-                  <th>Tipo de experiencia laboral 2</th>
-                  <th>Nombre de la empresa 2 </th>
-                  <th>Sector 2</th>
-                  <th>Teléfono de la empresa 2</th>
-                  <th>Fecha de inicio 2</th>
-                  <th>Fecha de finalización 2</th>
-                  <th>Cargo 2</th>
-                  <th>Área de trabajo 2 </th>
-                  <th>Funciones y logros 2</th>
-                  <th>Tipo de capacitación o certificación 1</th>
-                  <th>Nombre del programa 1</th>
-                  <th>Estado 1</th>
-                  <th>Duración en horas 1</th>
-                  <th>Nombre de la Institución 1</th>
-                  <th>Tipo de capacitación o certificación 2</th>
-                  <th>Nombre del programa 2</th>
-                  <th>Estado 2</th>
-                  <th>Duración en horas 2</th>
-                  <th>Nombre de la Institución 2</th>
-                  <th>Mencione brevemente conocimientos o habilidades que tiene.</th>
-                  <th>Mencione su perfil laboral</th>
-                  <th>Aspiración Salarial</th>
-                  <th>Posibilidad de viajar</th>
-                  <th>Interés en ofertas de teletrabajo</th>
-                  <th>Situación laboral actual</th>
-                  <th>Propiedad de medio de transporte</th>
-                  <th>Licencia de conducción</th>
-                  <th>Categoría de la licencia de conducción</th>
-                  <th>Intereses ocupacionales</th>
-                  <th>Idiomas y dialectos No 1</th>
-                  <th>Nivel de idioma No 1</th>
-                  <th>Idiomas y dialectos No 2</th>
-                  <th>Nivel idioma No 2</th>
-                  <th>Dispone de tiempo los días domingos y festivos entre las 6:00 am y las 4:00 pm </th>
-                  <th>Esta dispuesto a cumplir con una presentación personal acorde a las directrices del IDRD</th>
-                  <th>Comprende y acepta que inasistir reiteradamente a jornadas durante la etapa de preparación y acondicionamiento (justificadas e injustificadas), generan la exclusión del proceso</th>
-                  <th>Cuenta con bicicleta todo terreno</th>
-                  <th>Se encuentra actualmente afiliado a un prestador del servicio del sistema de seguridad social en salud (Cotizante, beneficiario o dependiente).</th>
-                  <th>Tiene algún antecedente de salud, física y/o psicológica que le impida realizar alguna actividad  </th>
-                  <th>Si su respuesta es afirmativa, indique el antecedente </th>
-                  <th>Acepto términos y condiciones</th>
-                  <th>Acepto tratamiento de datos personales</th>
-                  <th>FIRMA</th>
+              <tr>
+                      <th>Marca temporal</th>
+                      <th>Tipo de documento </th>
+                      <th>Número de documento</th>
+                      <th>Apellidos y nombres </th>
+                      <th>Correo electrónico </th>
+                      <th>Fecha de nacimiento </th>
+                      <th>País de residencia </th>
+                      <th>Departamento de residencia </th>
+                      <th>Ciudad/municipio de residencia </th>
+                      <th>Si eligió otra ciudad o municipio, por favor escribir cual </th>
+                      <th>Localidad de residencia </th>
+                      <th>Barrio</th>
+                      <th>Dirección de residencia </th>
+                      <th>Teléfono de contacto </th>
+                      <th>Estado civil </th>
+                      <th>Sexo</th>
+                      <th>País de nacimiento </th>
+                      <th>Departamento de nacimiento </th>
+                      <th>Ciudad/municipio de nacimiento </th>
+                      <th>Si eligió otra ciudad o municipio, por favor escribir cual </th>
+                      <th>Situación militar</th>
+                      <th>Se reconoce como parte de una población focalizada</th>
+                      <th>Grupo étnico</th>
+                      <th>Tipo de población focalizada </th>
+                      <th>Condición de discapacidad </th>
+                      <th>Grado más alto de escolaridad</th>
+                      <th>Estado de escolaridad </th>
+                      <th>Fecha de culminación de estudio más alto </th>
+                      <th>Titulo obtenido </th>
+                      <th>Institución</th>
+                      <th>Número de tarjeta profesional </th>
+                      <th>Tiene practica laboral </th>
+                      <th>Tipo de experiencia laboral 1</th>
+                      <th>Nombre de la empresa 1</th>
+                      <th>Sector 1</th>
+                      <th>Teléfono de la empresa 1 </th>
+                      <th>Fecha de inicio 1 </th>
+                      <th>Fecha de finalización 1</th>
+                      <th>Cargo 1</th>
+                      <th>Área de trabajo 1</th>
+                      <th>Funciones y logros 1</th>
+                      <th>Tipo de experiencia laboral 2</th>
+                      <th>Nombre de la empresa 2 </th>
+                      <th>Sector 2</th>
+                      <th>Teléfono de la empresa 2</th>
+                      <th>Fecha de inicio 2</th>
+                      <th>Fecha de finalización 2</th>
+                      <th>Cargo 2</th>
+                      <th>Área de trabajo 2 </th>
+                      <th>Funciones y logros 2</th>
+                      <th>Tipo de capacitación o certificación 1</th>
+                      <th>Nombre del programa 1</th>
+                      <th>Estado 1</th>
+                      <th>Duración en horas 1</th>
+                      <th>Nombre de la Institución 1</th>
+                      <th>Tipo de capacitación o certificación 2</th>
+                      <th>Nombre del programa 2</th>
+                      <th>Estado 2</th>
+                      <th>Duración en horas 2</th>
+                      <th>Nombre de la Institución 2</th>
+                      <th>Mencione brevemente conocimientos o habilidades que tiene.</th>
+                      <th>Mencione su perfil laboral</th>
+                      <th>Aspiración Salarial</th>
+                      <th>Posibilidad de viajar</th>
+                      <th>Interés en ofertas de teletrabajo</th>
+                      <th>Situación laboral actual</th>
+                      <th>Propiedad de medio de transporte</th>
+                      <th>Licencia de conducción</th>
+                      <th>Categoría de la licencia de conducción</th>
+                      <th>Intereses ocupacionales</th>
+                      <th>Idiomas y dialectos No 1</th>
+                      <th>Nivel de idioma No 1</th>
+                      <th>Idiomas y dialectos No 2</th>
+                      <th>Nivel idioma No 2</th>
+                      <th>Dispone de tiempo los días domingos y festivos entre las 6:00 am y las 4:00 pm </th>
+                      <th>Esta dispuesto a cumplir con una presentación personal acorde a las directrices del IDRD</th>
+                      <th>Comprende y acepta que inasistir reiteradamente a jornadas durante la etapa de preparación y acondicionamiento (justificadas e injustificadas), generan la exclusión del proceso</th>
+                      <th>Cuenta con bicicleta todo terreno</th>
+                      <th>Se encuentra actualmente afiliado a un prestador del servicio del sistema de seguridad social en salud (Cotizante, beneficiario o dependiente).</th>
+                      <th>Tiene algún antecedente de salud, física y/o psicológica que le impida realizar alguna actividad  </th>
+                      <th>Si su respuesta es afirmativa, indique el antecedente </th>
+                      <th>Acepto términos y condiciones</th>
+                      <th>Acepto tratamiento de datos personales</th>
+                      <th>FIRMA</th>
+                  </tr>
                 </thead>
         <tbody id="tabla">';
 
@@ -241,9 +242,11 @@ class FormController extends Controller
             $tabla.='<td>'.$value->id_pais.'</td>';
             $tabla.='<td>'.$value->id_departamento.'</td>';
             $tabla.='<td>'.$value->id_ciudad.'</td>';
+            $tabla.='<td></td>';
             $tabla.='<td>'.$value->id_localidad.'</td>';
             $tabla.='<td>'.$value->barrio.'</td>';
             $tabla.='<td>'.$value->direccion.'</td>';
+            $tabla.='<td>'.$value->telefono.'</td>';
             $tabla.='<td>'.$value->estado_civil.'</td>';
             $tabla.='<td>'.$value->sexo.'</td>';
             $tabla.='<td>'.$value->id_pais_nacimiento.'</td>';
@@ -262,7 +265,6 @@ class FormController extends Controller
             $tabla.='<td>'.$value->institucion_titulo_obtenido.'</td>';
             $tabla.='<td>'.$value->targeta_profesional.'</td>';
             $tabla.='<td>'.$value->practica_laboral_select.'</td>';
-
             $tabla.='<td>'.json_decode($value->practica_laboral)[0].'</td>';
             $tabla.='<td>'.json_decode($value->nombre_empresa)[0].'</td>';
             $tabla.='<td>'.json_decode($value->sector_empresa)[0].'</td>';
@@ -272,7 +274,6 @@ class FormController extends Controller
             $tabla.='<td>'.json_decode($value->cargo)[0].'</td>';
             $tabla.='<td>'.json_decode($value->area_trabajo)[0].'</td>';
             $tabla.='<td>'.json_decode($value->funciones)[0].'</td>';
-
             $tabla.='<td>'.json_decode($value->practica_laboral)[1].'</td>';
             $tabla.='<td>'.json_decode($value->nombre_empresa)[1].'</td>';
             $tabla.='<td>'.json_decode($value->sector_empresa)[1].'</td>';
@@ -282,24 +283,18 @@ class FormController extends Controller
             $tabla.='<td>'.json_decode($value->cargo)[1].'</td>';
             $tabla.='<td>'.json_decode($value->area_trabajo)[1].'</td>';
             $tabla.='<td>'.json_decode($value->funciones)[1].'</td>';
-
-            $tabla.='<td>'.$value->conocimientos_habilidades.'</td>';
-
             $tabla.='<td>'.json_decode($value->tipo_certificacion)[0].'</td>';
             $tabla.='<td>'.json_decode($value->nombre_certificacion)[0].'</td>';
             $tabla.='<td>'.json_decode($value->estado_certificacion)[0].'</td>';
             $tabla.='<td>'.json_decode($value->duracion_certificacion)[0].'</td>';
             $tabla.='<td>'.json_decode($value->institucion_certificacion)[0].'</td>';
-            $tabla.='<td>'.json_decode($value->nombre_programa)[0].'</td>';
-
             $tabla.='<td>'.json_decode($value->tipo_certificacion)[1].'</td>';
             $tabla.='<td>'.json_decode($value->nombre_certificacion)[1].'</td>';
             $tabla.='<td>'.json_decode($value->estado_certificacion)[1].'</td>';
             $tabla.='<td>'.json_decode($value->duracion_certificacion)[1].'</td>';
             $tabla.='<td>'.json_decode($value->institucion_certificacion)[1].'</td>';
-            $tabla.='<td>'.json_decode($value->nombre_programa)[1].'</td>';
-
-            $tabla.='<td>'.$value->conocimientos_habilidades_certificacion.'</td>';
+            $tabla.='<td>'.$value->conocimientos_habilidades.'</td>';
+           // $tabla.='<td>$value->conocimientos_habilidades_certificacion'.$value->conocimientos_habilidades_certificacion.'</td>';
             $tabla.='<td>'.$value->perfil_laboral.'</td>';
             $tabla.='<td>'.$value->aspiracion_salarial.'</td>';
             $tabla.='<td>'.$value->posibilidad_viajar.'</td>';
@@ -309,19 +304,16 @@ class FormController extends Controller
             $tabla.='<td>'.$value->licencia_conducion.'</td>';
             $tabla.='<td>'.$value->categoria_licencia.'</td>';
             $tabla.='<td>'.$value->intereses_ocupacionales.'</td>';
-
             $tabla.='<td>'.json_decode($value->idioma)[0].'</td>';
             $tabla.='<td>'.json_decode($value->idioma_nivel)[0].'</td>';
-
             $tabla.='<td>'.json_decode($value->idioma)[1].'</td>';
             $tabla.='<td>'.json_decode($value->idioma_nivel)[1].'</td>';
-
             $tabla.='<td>'.$value->dispone_tiempo.'</td>';
             $tabla.='<td>'.$value->presentacion_personal.'</td>';
             $tabla.='<td>'.$value->comprende_acepta.'</td>';
             $tabla.='<td>'.$value->bicicleta_todoterreno.'</td>';
             $tabla.='<td>'.$value->afiliado.'</td>';
-            $tabla.='<td>'.$value->seguridad_social_otro.'</td>';
+            //$tabla.='<td>$value->seguridad_social_otro'.$value->seguridad_social_otro.'</td>';
             $tabla.='<td>'.$value->antecedente_salud.'</td>';
             $tabla.='<td>'.$value->opcional_antecedente.'</td>';
             $tabla.='<td>'.$value->acepto_terminos.'</td>';
@@ -345,9 +337,7 @@ class FormController extends Controller
 
       if (empty($acceso)) { return view('error',['error' => 'Usuario o contraseña invalida!'] ); exit(); }
        
-       //session_start() ;
-
-       $_SESSION['id_usuario'] = json_encode($acceso);
+      $_SESSION['id_usuario'] = json_encode($acceso);
       
       return view('admin'); exit(); 
 

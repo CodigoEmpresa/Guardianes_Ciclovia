@@ -71,7 +71,7 @@
                 <a class="dropdown-toggle"  href="{{route('/')}}" >Inicio <span class="caret"></span></a>
               </li>
               <li>
-                <a href="#">Login</a>
+                <a href="{{url('login')}}">Login</a>
               </li>
 
             </ul>

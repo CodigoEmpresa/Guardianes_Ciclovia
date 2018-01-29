@@ -70,7 +70,6 @@ class MainController extends Controller
         $localidad = Localidad::get();
         $error = session('error');
 
-        //dd($request);
 
         return view('form', ['paises' => $pais,'ciudades' =>$ciudad,'departamentos'=> $departamento , 'localidades' => $localidad, 'error' => $error]);
 
