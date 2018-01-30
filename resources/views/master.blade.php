@@ -75,17 +75,11 @@
               </li>
 
             </ul>
-
-            <form class="navbar-form navbar-left" role="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Buscar">
-                </div>                
-                <button type="submit" class="btn btn-default">Ir</button>
-            </form>
+              
 
             <ul class="nav navbar-nav navbar-right">
               <li><a href="http://www.idrd.gov.co/sitio/idrd/" target="_blank">I.D.R.D</a></li>
-              <li><a href="#" target="_blank">Cerrar Sesión</a></li>
+              <li><a href="{{route('/')}}" >Cerrar Sesión</a></li>
             </ul>
 
           </div>
