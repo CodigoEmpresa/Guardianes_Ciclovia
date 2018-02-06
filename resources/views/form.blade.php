@@ -428,7 +428,7 @@
 
                 <fieldset class="form-group col-sm-6">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">País de
-                        nacimient<span style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span>
+                        nacimiento <span style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span>
                     </label>
                     <select name="id_pais_nacimiento" id="id_pais_nacimiento" class="form-control" data-value="{{(!empty($usuario)?($usuario->id_pais_nacimiento):old('id_pais_nacimiento'))}}">
                     </select>
@@ -597,7 +597,7 @@
             <div class="panel-body">
                 <fieldset class="form-group col-sm-6">
                     <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">
-                        Condición de discapacidad <span
+                        Nivel de estudio <span
                                 style="color: red;font-size: 13px;text-transform: capitalize;color:red">*</span>
                     </label>
                     <select required name="nivel_educativo" id="nivel_educativo" class="form-control"  data-value="{{ !empty($usuario )? $usuario->nivel_educativo  : old('nivel_educativo') }}" >

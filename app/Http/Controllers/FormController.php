@@ -138,7 +138,7 @@ class FormController extends Controller
 
     public function listar_datos(){
 
-    $acceso = User::whereYear('created_at', '=', date('Y'))->get(); 
+    $acceso = User::whereYear('created_at', '=', date('Y'))->get();
 
     $tabla='<table id="lista">
             <thead>
@@ -239,7 +239,7 @@ class FormController extends Controller
             $tabla.='<td>'.$value->nombres.' '.$value->apellidos.'</td>';
             $tabla.='<td>'.$value->mail.'</td>';
             $tabla.='<td>'.$value->fecha_nacimiento.'</td>';
-            $tabla.='<td>'.$value->id_pais.'</td>';
+            $tabla.='<td>'.Pais::find($value->id_pais).'</td>';
             $tabla.='<td>'.$value->id_departamento.'</td>';
             $tabla.='<td>'.$value->id_ciudad.'</td>';
             $tabla.='<td></td>';
@@ -324,6 +324,12 @@ class FormController extends Controller
       $tabla.='</tbody></table>';
 
       echo $tabla;
+
+    }
+
+    public function admin(Request $request){
+
+        return view('admin');
 
     }
 

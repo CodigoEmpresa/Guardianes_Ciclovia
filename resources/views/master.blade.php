@@ -70,16 +70,18 @@
               <li class="dropdown">
                 <a class="dropdown-toggle"  href="{{route('/')}}" >Inicio <span class="caret"></span></a>
               </li>
-              <li>
-                <a href="{{url('login')}}">Login</a>
-              </li>
+                @if(!empty($_SESSION['Usuario'][0]))
+                  <li>
+                    <a href="{{url('admin')}}">Administrador</a>
+                  </li>
+                @endif
 
             </ul>
               
 
             <ul class="nav navbar-nav navbar-right">
               <li><a href="http://www.idrd.gov.co/sitio/idrd/" target="_blank">I.D.R.D</a></li>
-              <li><a href="{{route('/')}}" >Cerrar Sesión</a></li>
+              <li><a href="{{url('logout')}}" >Cerrar Sesión</a></li>
             </ul>
 
           </div>
@@ -93,7 +95,7 @@
           <div class="page-header" id="banner">
             <div class="row">
               <div class="col-lg-8 col-md-7 col-sm-6">
-                <h1 style="color:white;">MÓDULO Guardianes de ciclovía</h1></p>
+                <h1 style="color:white;">Formulario de inscripción Aspirante a Guardianes de Ciclovía</h1></p>
               </div>
               <div class="col-lg-4 col-md-5 col-sm-6">
                  <div align="right"> 

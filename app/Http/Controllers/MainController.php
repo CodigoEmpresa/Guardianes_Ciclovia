@@ -27,15 +27,21 @@ class MainController extends Controller
 
     public function welcome()
     {
-        $data['seccion'] = '';
-        return view('welcome', $data);
+        $pais  = Pais::get();
+        $ciudad = Ciudad::get();
+        $departamento = Departamento::get();
+        $localidad = Localidad::get();
+        $error = session('error');
+        return view('form', ['paises' => $pais,'ciudades' =>$ciudad,'departamentos'=> $departamento , 'localidades' => $localidad, 'error' => $error]);
+
     }
 
     public function index(Request $request)
     {
-       /*
-        $fake_permissions = ['5144', '1'];
-        //$fake_permissions = null;
+
+        //$fake_permissions = ['5144', '1'];
+        $fake_permissions = null;
+
 
         if ($request->has('vector_modulo') || $fake_permissions) {
             $vector = $request->has('vector_modulo') ? urldecode($request->input('vector_modulo')) : $fake_permissions;
@@ -62,16 +68,8 @@ class MainController extends Controller
         if ($_SESSION['Usuario'] == '')
             return redirect()->away('http://www.idrd.gov.co/SIM/Presentacion/');
 
-        return redirect('/welcome');*/
+        return redirect('/welcome');
 
-        $pais  = Pais::get();
-        $ciudad = Ciudad::get();
-        $departamento = Departamento::get();
-        $localidad = Localidad::get();
-        $error = session('error');
-
-
-        return view('form', ['paises' => $pais,'ciudades' =>$ciudad,'departamentos'=> $departamento , 'localidades' => $localidad, 'error' => $error]);
 
     }
 

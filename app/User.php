@@ -30,5 +30,7 @@ class User extends Model
         return $this->belongsTo('App\Departamento','id_departamento');
 
        }
+
+       
   
 }

@@ -24,15 +24,15 @@ Route::get('login', function () {
 Route::post('listar_datos', 'FormController@listar_datos');
 
 
-Route::any('logear','FormController@logear');
-
+Route::any('/',['as' => '/','uses' => 'MainController@index']);
 
 //rutas con filtro de autenticación
 Route::group(['middleware' => ['web']], function () {
     Route::any('/logout', 'MainController@logout');
+    Route::any('admin','FormController@admin');
     Route::any('insertar',['as' => 'insertar','uses' => 'FormController@insertar']);
-	Route::get('/welcome', 'MainController@welcome');
-    Route::get('/',['as' => '/','uses' => 'MainController@index']);
+    Route::any('/welcome', 'MainController@welcome');
+
 
     Route::get('cerrar', function () {
 		session_start();
